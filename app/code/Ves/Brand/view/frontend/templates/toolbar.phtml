@@ -1,0 +1,35 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+?>
+<p class="toolbar-amount" id="toolbar-amount">
+    <?php if ($block->getLastPageNum() > 1): ?>
+        <?php echo __('Items') ?>
+        <span class="toolbar-number"><?php echo $block->getFirstNum() ?></span>
+        <?php echo '-' ?>
+        <span class="toolbar-number"><?php echo $block->getLastNum() ?></span>
+        <?php echo __('of'); ?>
+        <span class="toolbar-number"><?php echo $block->getTotalNum() ?></span>
+    <?php elseif ($block->getTotalNum() == 1): ?>
+        <?php /* @escapeNotVerified */ echo __('%1 Item',
+        '<span class="toolbar-number ">' . $block->getTotalNum() . '</span>') ?>
+    <?php else: ?>
+        <?php /* @escapeNotVerified */ echo __('%1 Items',
+        '<span class="toolbar-number">' . $block->getTotalNum() . '</span>') ?>
+    <?php endif; ?>
+</p>
+<?php if ($block->getCollection()->getSize()): ?>
+    <?php echo $block->getPagerHtml() ?>
+<?php endif ?>

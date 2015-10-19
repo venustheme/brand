@@ -1,0 +1,5 @@
+<?php if ($_description = $block->getCurrentBrand()->getDescription()): ?>
+	<div class="brand-description">
+		<?php echo $this->helper('Ves\Brand\Helper\Data')->filter($_description) ?>
+	</div>
+<?php endif; ?>

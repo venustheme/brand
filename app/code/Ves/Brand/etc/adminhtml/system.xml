@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Venustheme
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Venustheme.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.venustheme.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Venustheme
+ * @package    Ves_Brand
+ * @copyright  Copyright (c) 2014 Venustheme (http://www.venustheme.com/)
+ * @license    http://www.venustheme.com/LICENSE-1.0.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+	<system>
+		<tab id="venustheme" translate="label" sortOrder="400">
+			<label>Venustheme Extensions</label>
+		</tab>
+		<section id="vesbrand" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+			<class>separator-top</class>
+			<label>Brand</label>
+			<tab>venustheme</tab>
+			<resource>Ves_Brand::config_brand</resource>
+			<group id="general_settings" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>General Settings</label>
+				<field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enabled</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="route" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Brand List Url</label>
+				</field>
+				<field id="url_prefix" translate="label comment" type="text" sortOrder="24" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Brand Url Prefix</label>
+				</field>
+				<field id="url_suffix" translate="label comment" type="text" sortOrder="28" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Brand Url Suffix</label>
+				</field>
+			</group>
+			<group id="brand_list_page" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Brand List Page</label>
+				<field id="layout" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Layout</label>
+					<source_model>Ves\Brand\Model\Config\Source\Brandlistlayout</source_model>
+				</field>
+				<field id="show_brand_name" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Show Brand Name</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="item_per_page" translate="label comment" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Number Brand Per Page</label>
+					<comment>Empty to show all item</comment>
+				</field>
+				<field id="seo_config_heading" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>SEO - Search Engine Optimization</label>
+					<frontend_model>Ves\Brand\Block\Adminhtml\System\Config\Form\Field\Heading</frontend_model>
+				</field>
+				<field id="page_title" type="text"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+					<label>Page Title</label>
+				</field>
+				<field id="meta_description" type="textarea"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="30">
+					<label>Meta Description</label>
+				</field>
+				<field id="meta_keywords" type="textarea"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="40">
+					<label>Meta Keywords</label>
+				</field>
+				<field id="grid_config_heading" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Grid Layout</label>
+					<frontend_model>Ves\Brand\Block\Adminhtml\System\Config\Form\Field\Heading</frontend_model>
+				</field>
+				<field id="lg_column_item" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Number Column on Large Desktop</label>
+					<comment><![CDATA[Large devices Desktops (≥1200px)]]></comment>
+					<source_model>Ves\Brand\Model\Config\Source\Gridcolumns</source_model>
+				</field>
+				<field id="md_column_item" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Number Column on Desktop</label>
+					<comment><![CDATA[Medium devices Desktops (≥992px)]]></comment>
+					<source_model>Ves\Brand\Model\Config\Source\Gridcolumns</source_model>
+				</field>
+				<field id="sm_column_item" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Number Column on Tablets</label>
+					<source_model>Ves\Brand\Model\Config\Source\Gridcolumns</source_model>
+					<comment><![CDATA[Small devices Tablets (≥768px)]]></comment>
+				</field>
+				<field id="xs_column_item" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Number Column on Phones</label>
+					<source_model>Ves\Brand\Model\Config\Source\Gridcolumns</source_model>
+					<comment><![CDATA[Extra small devices Phones (<768px)]]></comment>
+				</field>
+			</group>
+			<group id="group_page" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Group Page</label>
+				<field id="show_brand_name" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Show Brand Name</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="item_per_page" translate="label comment" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Number Brand Per Page</label>
+					<comment>Empty to show all item</comment>
+				</field>
+				<field id="lg_column_item" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Number Column on Large Desktop</label>
+					<comment><![CDATA[Large devices Desktops (≥1200px)]]></comment>
+					<source_model>Ves\Brand\Model\Config\Source\Gridcolumns</source_model>
+				</field>
+				<field id="md_column_item" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Number Column on Desktop</label>
+					<comment><![CDATA[Medium devices Desktops (≥992px)]]></comment>
+					<source_model>Ves\Brand\Model\Config\Source\Gridcolumns</source_model>
+				</field>
+				<field id="sm_column_item" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Number Column on Tablets</label>
+					<source_model>Ves\Brand\Model\Config\Source\Gridcolumns</source_model>
+					<comment><![CDATA[Small devices Tablets (≥768px)]]></comment>
+				</field>
+				<field id="xs_column_item" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Number Column on Phones</label>
+					<source_model>Ves\Brand\Model\Config\Source\Gridcolumns</source_model>
+					<comment><![CDATA[Extra small devices Phones (<768px)]]></comment>
+				</field>
+			</group>
+			<group id="brand_block" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Brand Block</label>
+				<field id="enable" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enable</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="title" type="text"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+					<label>Title</label>
+				</field>
+				<field id="brand_groups" type="multiselect" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+					<label>Brand Group</label>
+					<source_model>Ves\Brand\Model\Source\Brandgrouplist</source_model>
+				</field>
+				<field id="show_brand_name" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Show Brand Name</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="number_item" type="text"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="40">
+					<label>Number of Brand to Display</label>
+				</field>
+				<field id="addition_class" type="text"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="50">
+					<label>Addtion Class</label>
+				</field>
+				<field id="carousel_layout" type="select" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="60" >
+					<label>Carousel Layout</label>
+					<source_model>Ves\Brand\Model\Source\Carousellayout</source_model>
+				</field>
+				<field id="default_items" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="70">
+					<label>Number Columns On Page (Default)</label>
+					<comment >Show number items when screen size between 1199px and 980px</comment>
+					<depends>
+						<field id="carousel_layout">owl_carousel</field>
+					</depends>
+				</field>
+				<field id="mobile_items" type="text"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="80">
+					<label>Number Columns On Page (Phones)</label>
+					<comment >Show number items when screen size bellow 480px</comment>
+					<depends>
+						<field id="carousel_layout">owl_carousel</field>
+					</depends>
+				</field>
+				<field id="tablet_small_items" type="text"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="90">
+					<label>Number Columns On Page (Phones to Small tablets)</label>
+					<comment >Show number items when screen size between 641px and 480px</comment>
+					<depends>
+						<field id="carousel_layout">owl_carousel</field>
+					</depends>
+				</field>
+				<field id="tablet_items" type="text"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="100">
+					<label>Number Columns On Page (Phones to tablets)</label>
+					<comment >Show number items when screen size between 768px and 641px</comment>
+					<depends>
+						<field id="carousel_layout">owl_carousel</field>
+					</depends>
+				</field>
+				<field id="portrait_items" type="text"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="110">
+					<label>Number Columns On Page (Portrait tablets)</label>
+					<comment >Show number items when screen size between 979px and 769px</comment>
+					<depends>
+						<field id="carousel_layout">owl_carousel</field>
+					</depends>
+				</field>
+				<field id="large_items" type="text"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="120">
+					<label>Number Columns On Page (Large display)</label>
+					<comment >Show number items when screen size 1200px and up</comment>
+					<depends>
+						<field id="carousel_layout">owl_carousel</field>
+					</depends>
+				</field>
+				<field id="autoplay" type="select"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="122">
+					<label>Autoplay</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="autoplay_timeout" type="text"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="124">
+					<label>Autoplay Timeout</label>
+					<comment>Autoplay interval timeout.</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="item_per_page" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="130">
+					<label>Item Per Page</label>
+					<depends>
+						<field id="carousel_layout">bootstrap_carousel</field>
+					</depends>
+				</field>
+				<field id="lg_column_item" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="140">
+					<label>Number Column on Desktop</label>
+					<comment><![CDATA[Large devices Desktops (≥1200px)]]></comment>
+					<depends>
+						<field id="carousel_layout">bootstrap_carousel</field>
+					</depends>
+				</field>
+				<field id="md_column_item" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="150">
+					<label>Number Column on Desktop</label>
+					<comment><![CDATA[Medium devices Desktops (≥992px)]]></comment>
+					<depends>
+						<field id="carousel_layout">bootstrap_carousel</field>
+					</depends>
+				</field>
+				<field id="sm_column_item" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="160">
+					<label>Number Column on Tablets</label>
+					<comment><![CDATA[Small devices Tablets (≥768px)]]></comment>
+					<depends>
+						<field id="carousel_layout">bootstrap_carousel</field>
+					</depends>
+				</field>
+				<field id="xs_column_item" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="170">
+					<label>Number Column on Phones</label>
+					<comment><![CDATA[Extra small devices Phones (<768px)]]></comment>
+					<depends>
+						<field id="carousel_layout">bootstrap_carousel</field>
+					</depends>
+				</field>
+				<field id="interval" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="180">
+					<label>Interval</label>
+					<comment><![CDATA[The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle.]]></comment>
+					<depends>
+						<field id="carousel_layout">bootstrap_carousel</field>
+					</depends>
+				</field>
+				<field id="dots" type="select"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="190">
+					<label>Show dots navigations</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="nav" type="select" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="200">
+					<label>Show next/prev buttons.</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

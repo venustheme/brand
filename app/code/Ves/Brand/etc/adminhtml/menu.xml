@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Venustheme
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Venustheme.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.venustheme.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Venustheme
+ * @package    Ves_Brand
+ * @copyright  Copyright (c) 2014 Venustheme (http://www.venustheme.com/)
+ * @license    http://www.venustheme.com/LICENSE-1.0.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+	<menu>
+		
+		<add id="Ves_Brand::brand" title="Ves Brand" module="Ves_Brand" sortOrder="10" resource="Ves_Brand::brand"/>
+
+		<add id="Ves_Brand::brand_head_manage" title="Brand" module="Ves_Brand" sortOrder="10" parent="Ves_Brand::brand" resource="Ves_Brand::brand_head_manage"/>
+
+		<add id="Ves_Brand::brand_new" title="Add New Brand" module="Ves_Brand" sortOrder="10" parent="Ves_Brand::brand_head_manage" action="vesbrand/brand/new" resource="Ves_Brand::brand_new"/>
+
+		<add id="Ves_Brand::brand_manage" title="Brand Manage" module="Ves_Brand" sortOrder="20" parent="Ves_Brand::brand_head_manage" action="vesbrand/brand/index" resource="Ves_Brand::brand_manage"/>
+
+		<add id="Ves_Brand::brand_head_group_manage" title="Brand Group" module="Ves_Brand" sortOrder="20" parent="Ves_Brand::brand" resource="Ves_Brand::brand_group_manage"/>
+ 
+		<add id="Ves_Brand::brand_group_add_new" title="Add New Group" module="Ves_Brand" sortOrder="10" parent="Ves_Brand::brand_head_group_manage" action="vesbrand/group/new" resource="Ves_Brand::brand_group_add_new"/>
+
+		<add id="Ves_Brand::brand_group_manage" title="Group Manage" module="Ves_Brand" sortOrder="20" parent="Ves_Brand::brand_head_group_manage" action="vesbrand/group/index" resource="Ves_Brand::brand_group_manage"/>
+	
+		<add id="Ves_Brand::brand_head_settings" title="Settings" module="Ves_Brand" sortOrder="20" parent="Ves_Brand::brand" resource="Ves_Brand::brand_group_manage"/>
+
+        <add id="Ves_Brand::configuration" title="Configuration" module="Ves_Brand" sortOrder="6"
+            parent="Ves_Brand::brand_head_settings" action="adminhtml/system_config/edit/section/vesbrand" resource="Ves_Brand::configuration"/>
+	</menu>
+</config>

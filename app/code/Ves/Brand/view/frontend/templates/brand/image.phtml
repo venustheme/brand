@@ -1,0 +1,8 @@
+<?php
+$_brand = $block->getCurrentBrand();
+$_img = '';
+if($_img = $_brand->getImageUrl()){ ?>
+<div class="brand-image">
+	<img src="<?php echo $_img ?>" alt="<?php echo $_brand->getName(); ?>" class="image"/>
+</div>
+<?php }

@@ -1,0 +1,17 @@
+<?php
+$collection = $this->getGroupList();
+?>
+<?php if ( $collection->count() ){ ?>
+<div class="block widget ves-widget brand-widget">
+	<div class="block-title">
+		<strong><?php echo __('Brand Group') ?></strong>
+	</div>
+	<div class="block-content">
+		<ul>
+			<?php foreach ($collection as $_group) { ?>
+			<li><a href="<?php echo $_group->getUrl(); ?>" title="<?php echo $_group->getName(); ?>" ><?php echo $_group->getName(); ?></a></li>
+			<?php } ?>
+		</ul>
+	</div>
+</div>
+<?php }

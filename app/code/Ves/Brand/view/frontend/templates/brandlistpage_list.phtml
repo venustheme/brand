@@ -1,0 +1,26 @@
+<?php
+$_brandCollection = $block->getCollection();
+$show_brand_name = $this->getConfig('brand_list_page/show_brand_name');
+?>
+<?php if ( $_brandCollection->count() ){ ?>
+<?php $total = $_brandCollection->getSize(); ?>
+<div class="brandlist">
+	<div class="block-content">
+		<?php foreach ($_brandCollection as $_brand) { ?>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="brand-item">
+				<div class="brand-image"><a href="<?php echo $_brand->getUrl(); ?>" title="<?php echo $_brand->getName(); ?>"><img src="<?php echo $_brand->getThumbnailUrl(); ?>" alt="<?php echo $_brand->getName(); ?>"/></a></div>
+				<?php if($show_brand_name){ ?>
+				<div class="brand-name"><a href="<?php echo $_brand->getUrl(); ?>" title="<?php echo $_brand->getName(); ?>"><?php echo $_brand->getName() ?></a></div>
+				<?php } ?>
+			</div>
+		</div>
+		<?php } ?>
+	</div>
+	<div class="brand-toolbar">
+		<?php echo $block->getChildHtml('toolbar'); ?>
+	</div>
+</div>
+<?php }else{ ?>
+<div class="message info empty"><div><?php echo __('We can\'t find brand matching the selection.'); ?></div></div>
+<?php } ?>

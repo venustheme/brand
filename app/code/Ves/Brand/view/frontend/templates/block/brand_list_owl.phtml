@@ -1,0 +1,72 @@
+<?php
+$_brandCollection = $block->getBrandCollection();
+$_helper = $this->helper('Ves\Brand\Helper\Data');
+$title = $this->getConfig('brand_block/title');
+$show_brand_name = $this->getConfig('brand_block/show_brand_name');
+
+$blockId = rand().time();
+$default_items = $this->getConfig('brand_block/default_items');
+$addition_class = $this->getConfig('brand_block/addition_class');
+$mobile_items = (int)$this->getConfig('brand_block/mobile_items',1);
+$tablet_small_items = (int)$this->getConfig('brand_block/tablet_small_items',2);
+$tablet_items = (int)$this->getConfig('brand_block/tablet_items',3);
+$portrait_items = (int)$this->getConfig('brand_block/portrait_items',4);
+$large_items = (int)$this->getConfig('brand_block/large_items',5);
+$dots = $this->getConfig('brand_block/dots',true);
+$nav = $this->getConfig('brand_block/nav',true);
+$autoplay = $this->getConfig('brand_block/autoplay',true);
+$autoplay_timeout = (int)$this->getConfig('brand_block/autoplay_timeout',3000);
+
+$auto_play = $this->getConfig('brand_block/auto_play');
+$speed = $this->getConfig('brand_block/speed');
+?>
+<?php if ( $_brandCollection->count() ){ ?>
+<div class="block widget ves-widget brand-widget <?php echo $addition_class?$addition_class:'' ?>">
+	<?php if($title){ ?>
+	<div class="block-title">
+		<strong><?php echo $title ?></strong>
+	</div>
+	<?php } ?>
+	<div class="block-content">
+		<ul class="owl-carousel ves-carousel<?php echo $blockId ?>">
+			<?php foreach ($_brandCollection as $_brand) { ?>
+			<li class="item">
+				<div class="brand-item">
+					<div class="brand-image"><a href="<?php echo $_brand->getUrl(); ?>" title="<?php echo $_brand->getName(); ?>"><img src="<?php echo $_brand->getThumbnailUrl(); ?>" alt="<?php echo $_brand->getName(); ?>"/></a></div>
+					<?php if($show_brand_name){ ?>
+					<div class="brand-name"><a href="<?php echo $_brand->getUrl(); ?>" title="<?php echo $_brand->getName(); ?>"><?php echo $_brand->getName() ?></a></div>
+					<?php } ?>
+				</div>
+			</li>
+			<?php } ?>
+		</ul>
+	</div>
+</div>
+<?php } ?>
+<script type="text/javascript">
+	require([
+		'jquery',
+		'owlcarousel'
+		], function () {
+			var owl = jQuery('.ves-carousel<?php echo $blockId ?>');
+			owl.owlCarousel({
+				rtl: false,
+				loop:true,
+				nav:<?php echo $nav?"true":"false" ?>,
+				dots:<?php echo $dots?"true":"false" ?>,
+				responsiveRefreshRate: false,
+				<?php if($autoplay){ ?>
+				autoplay:true,
+				autoplayTimeout: <?php echo $autoplay_timeout ?>,
+				autoplayHoverPause:true,
+				<?php } ?>
+				responsive:{
+					0 : { items: <?php echo $mobile_items ?>},
+					480 : {items: <?php echo $tablet_small_items ?>},
+					768 : {items: <?php echo $tablet_items ?>},
+					980 : {items: <?php echo $portrait_items ?>},
+					1200 : {items: <?php echo $large_items ?>}
+				}
+			});
+		});
+</script>

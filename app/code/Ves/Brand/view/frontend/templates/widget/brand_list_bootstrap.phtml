@@ -1,0 +1,102 @@
+<?php
+$_brandCollection = $block->getBrandCollection();
+$_helper = $this->helper('Ves\Brand\Helper\Data');
+$title = $this->getConfig('widget_title');
+$blockId = rand().time();
+
+// Boostrap Carousel
+$itemsperpage = (int)$this->getConfig('item_per_page',6);
+$lg_column_item = (int)$this->getConfig('lg_column_item',6);
+$md_column_item = (int)$this->getConfig('md_column_item',6);
+$sm_column_item = (int)$this->getConfig('sm_column_item',6);
+$xs_column_item = (int)$this->getConfig('xs_column_item',6);
+
+$lg_column = 12/$lg_column_item;
+$md_column = 12/$md_column_item;
+$sm_column = 12/$sm_column_item;
+$xs_column = 12/$xs_column_item;
+
+$addition_class = $this->getConfig('addition_class');
+$show_brand_name = $this->getConfig('show_brand_name');
+$auto_play = $this->getConfig('auto_play');
+$speed = $this->getConfig('speed');
+$dots = $this->getConfig('dots',true);
+$nav = $this->getConfig('nav',true);
+$interval = $this->getConfig('interval',true);
+
+?>
+<?php if ( $_brandCollection->count() ){ ?>
+<?php
+$total = $_brandCollection->getSize();
+$totalPage = '';
+if($total%$itemsperpage == 0){
+	$totalPage = $total/$itemsperpage;
+}else{
+	$totalPage = floor($total/$itemsperpage)+1;
+}
+?>
+<div class="block widget ves-widget brand-widget <?php echo $addition_class?$addition_class:'' ?>">
+	<?php if($title){ ?>
+	<div class="block-title">
+		<strong><?php echo $title ?></strong>
+	</div>
+	<?php } ?>
+	<div id="productcarousel-<?php echo $blockId ?>" class="block-content carousel slide" data-ride="carousel" data-interval="<?php echo $interval?$interval:"false"; ?>">
+		<!-- Indicators -->
+		<?php if($dots && $totalPage>0){ ?>
+		<ol class="carousel-indicators">
+			<?php
+			for ($i=0; $i < $totalPage ; $i++) { ?>
+			<li data-target="#productcarousel-<?php echo $blockId ?>" data-slide-to="<?php echo $i ?>"></li>
+			<?php } ?>
+		</ol>
+		<?php } ?>
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<?php
+			$i = 1;
+			$x = 0;
+			?>
+			<?php foreach ($_brandCollection as $_brand) { ?>
+			<?php if( $itemsperpage == 1 || $i % $itemsperpage == 1){ ?>
+			<div class="item <?php if($i==1){ ?>active<?php } ?>">
+				<?php } ?>
+				<?php if( $lg_column_item == 1 || $x%$lg_column_item == 0 || $x%$itemsperpage == 0){ ?>
+				<div class="row">
+					<?php } ?>
+					<div class="col-lg-<?php echo $lg_column ?> col-md-<?php echo $md_column ?> col-sm-<?php echo $sm_column ?> col-xs-<?php echo $xs_column ?>">
+						<div class="brand-item">
+							<div class="brand-image"><a href="<?php echo $_brand->getUrl(); ?>" title="<?php echo $_brand->getName(); ?>"><img src="<?php echo $_brand->getThumbnailUrl(); ?>" alt="<?php echo $_brand->getName(); ?>"/></a></div>
+							<?php if($show_brand_name){ ?>
+							<div class="brand-name"><a href="<?php echo $_brand->getUrl(); ?>" title="<?php echo $_brand->getName(); ?>"><?php echo $_brand->getName() ?></a></div>
+							<?php } ?>
+						</div>
+					</div>
+					<?php if( $lg_column_item == 1 || ($x+1)%$lg_column_item == 0 || $i == $total || ($x>0 && ($x+1)%$itemsperpage == 0) ) {  ?>
+				</div>
+				<?php } ?>
+				<?php if( $itemsperpage == 1 || ($i+1)%$itemsperpage == 1 || $i == $total ) { $x = -1; ?>
+			</div>
+			<?php } ?>
+			<?php $i++; $x++; ?>
+			<?php } ?>
+		</div>
+		
+		<?php if($nav && $total>$xs_column_item){ ?>
+		<div class="carousel-controls">
+			<!-- Controls -->
+			<a class="left carousel-control" href="#productcarousel-<?php echo $blockId ?>" role="button" data-slide="prev"><?php echo __('Previous'); ?>
+			</a>
+			<a class="right carousel-control" href="#productcarousel-<?php echo $blockId ?>" role="button" data-slide="next"><?php echo __('Next'); ?>
+			</a>
+		</div>
+		<?php } ?>
+	</div>
+</div>
+<?php } ?>
+
+<script type="text/javascript">
+	require([
+		'boostrap'
+		], function () {});
+</script>
