@@ -1,0 +1,11 @@
+<h2><a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Magento2 Brand Extension</h2>
+Our magento brand extension let your shopper find product by their favorite brand/ manufature. Also, you can show your brand logos on the homepage with owl carousel.
+
+The process of creating brand is very easy and convenient for you. Imagine how shift in sales and customer loyalty when you help your visitor find what they want.
+
+Especially this is our first magento 2 module that compatible with magento version 2.0. If you have any suggestion please feel free to tell us. We hope that our brand module will be the best one that you have.
+
+<h2><a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+To install this module copy the code from this repo to <code>app/code</code> folder of your Magento 2 instance.
+If you do this after installing Magento 2 you need to run <code>php bin/magento setup:upgrade</code>
