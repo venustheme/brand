@@ -9,3 +9,5 @@ Especially this is our first magento 2 module that compatible with magento versi
 
 To install this module copy the code from this repo to <code>app/code</code> folder of your Magento 2 instance.
 If you do this after installing Magento 2 you need to run <code>php bin/magento setup:upgrade</code>
+
+Please read more information at <a href="http://www.venustheme.com/theme/ves-brand-2-0" target="_blank">http://www.venustheme.com/theme/ves-brand-2-0/</a>
