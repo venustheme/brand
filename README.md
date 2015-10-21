@@ -7,7 +7,6 @@ Especially this is our first magento 2 module that compatible with magento versi
 
 <h2><a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
 
-To install this module copy the code from this repo to <code>app/code</code> folder of your Magento 2 instance.
-If you do this after installing Magento 2 you need to run <code>php bin/magento setup:upgrade</code>
+To install this module, please copy the code from this repo to folder <code>root</code> of your Magento 2 website. If you do this after installing Magento 2 you need to run <code>php bin/magento setup:upgrade</code>
 
 Please read more information at <a href="http://www.venustheme.com/theme/ves-brand-2-0" target="_blank">http://www.venustheme.com/theme/ves-brand-2-0/</a>
