@@ -23,6 +23,16 @@ namespace Ves\Brand\Controller\Adminhtml\Group;
 class Index extends \Ves\Brand\Controller\Adminhtml\Group
 {
 	/**
+     * Check the permission to run it
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Ves_Brand::group');
+    }
+
+	/**
 	 * Brand list action
 	 *
 	 * @return \Magento\Backend\Model\View\Result\Page|\Magento\Backend\Model\View\Result\Forward
@@ -35,7 +45,7 @@ class Index extends \Ves\Brand\Controller\Adminhtml\Group
 		/**
 		 * Set active menu item
 		 */
-		$resultPage->setActiveMenu("Ves_Brand::brand_group_manage");
+		$resultPage->setActiveMenu("Ves_Brand::grop");
 		$resultPage->getConfig()->getTitle()->prepend(__('Brand Groups'));
 
 		/**

@@ -23,7 +23,7 @@ namespace Ves\Brand\Controller\Adminhtml\Group;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
-use Ves\Brand\Model\Resource\Group\CollectionFactory;
+use Ves\Brand\Model\ResourceModel\Group\CollectionFactory;
 
 class MassDelete extends \Magento\Backend\App\Action
 {
@@ -72,5 +72,15 @@ class MassDelete extends \Magento\Backend\App\Action
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/*/');
+    }
+
+    /**
+     * Check the permission to run it
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Ves_Brand::group_delete');
     }
 }

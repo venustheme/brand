@@ -1,9 +1,28 @@
 <?php
+/**
+ * Venustheme
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Venustheme.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.venustheme.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Venustheme
+ * @package    Ves_Brand
+ * @copyright  Copyright (c) 2014 Venustheme (http://www.venustheme.com/)
+ * @license    http://www.venustheme.com/LICENSE-1.0.html
+ */
 namespace Ves\Brand\Block\Adminhtml\Brand\Edit\Tab;
 
 use Magento\Backend\Block\Widget\Grid\Extended as ExtendedGrid;
 use Magento\Backend\Block\Widget\Tab\TabInterface;
-use Magento\Catalog\Model\Resource\Product\CollectionFactory;
+use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 use Magento\Catalog\Model\Product\Type as ProductType;
 use Magento\Catalog\Model\Product\Attribute\Source\Status as ProductStatus;
 use Magento\Catalog\Model\Product\Visibility as ProductVisibility;
@@ -11,7 +30,7 @@ use Magento\Framework\Registry;
 use Magento\Backend\Block\Template\Context;
 use Magento\Backend\Helper\Data as DataHelper;
 use Magento\Store\Model\Store;
-use Magento\Eav\Model\Resource\Entity\Attribute\Set\CollectionFactory as SetCollectionFactory;
+use Magento\Eav\Model\ResourceModel\Entity\Attribute\Set\CollectionFactory as SetCollectionFactory;
 use Magento\Catalog\Model\ProductFactory;
 use Magento\Directory\Model\Currency;
 use Magento\Store\Model\ScopeInterface;
@@ -24,7 +43,7 @@ use Magento\Store\Model\ScopeInterface;
 class Product extends ExtendedGrid implements TabInterface
 {
     /**
-     * @var \Magento\Catalog\Model\Resource\Product\CollectionFactory
+     * @var \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory
      */
     protected $productCollectionFactory;
 
@@ -187,7 +206,7 @@ class Product extends ExtendedGrid implements TabInterface
                 'column_css_class' => 'col-type'
             ]
         );
-        /** @var \Magento\Catalog\Model\Resource\Product $resource */
+        /** @var \Magento\Catalog\Model\ResourceModel\Product $resource */
         $resource = $this->productFactory->create()->getResource();
         $sets = $this->setCollectionFactory->create()->setEntityTypeFilter(
             $resource->getTypeId()

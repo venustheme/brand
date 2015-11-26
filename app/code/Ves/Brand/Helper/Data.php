@@ -54,7 +54,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      *
      * @param \Magento\Framework\App\Helper\Context $context
      * @param \Magento\Store\Model\StoreManagerInterface $storeManager,
-     * @param \Ves\Brand\Model\Resource\Group\Collection $groupCollection
+     * @param \Ves\Brand\Model\ResourceModel\Group\Collection $groupCollection
      */
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,

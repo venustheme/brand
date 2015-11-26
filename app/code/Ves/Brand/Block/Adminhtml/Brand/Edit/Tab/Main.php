@@ -74,7 +74,7 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
     	/**
     	 * Checking if user have permission to save information
     	 */
-    	if($this->_isAllowedAction('Ves_Brand::brand_manage')){
+    	if($this->_isAllowedAction('Ves_Brand::brand_edit')){
     		$isElementDisabled = false;
     	}else {
     		$isElementDisabled = true;

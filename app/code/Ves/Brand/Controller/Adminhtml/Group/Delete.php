@@ -22,6 +22,13 @@ namespace Ves\Brand\Controller\Adminhtml\Group;
 
 class Delete extends \Ves\Brand\Controller\Adminhtml\Group
 {
+    /**
+     * {@inheritdoc}
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Ves_Brand::group_delete');
+    }
 
     /**
      * Delete action

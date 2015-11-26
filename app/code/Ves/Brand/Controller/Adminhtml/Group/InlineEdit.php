@@ -116,4 +116,14 @@ class InlineEdit extends \Magento\Backend\App\Action
     {
         return '[Page ID: ' . $group->getId() . '] ' . $errorText;
     }
+
+    /**
+     * Check the permission to run it
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Ves_Brand::group_save');
+    }
 }

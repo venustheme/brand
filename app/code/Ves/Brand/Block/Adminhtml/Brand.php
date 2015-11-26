@@ -38,7 +38,7 @@ class Brand extends \Magento\Backend\Block\Widget\Grid\Container
 
         parent::_construct();
 
-        if ($this->_isAllowedAction('Ves_Brand::brand_manage')) {
+        if ($this->_isAllowedAction('Ves_Brand::brand_save')) {
             $this->buttonList->update('add', 'label', __('Add New Brand'));
         } else {
             $this->buttonList->remove('add');

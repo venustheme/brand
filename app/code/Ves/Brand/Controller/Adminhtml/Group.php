@@ -93,7 +93,7 @@ abstract class Group extends \Magento\Backend\App\Action
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Ves_Brand::brand_group_manage');
+        return $this->_authorization->isAllowed('Ves_Brand::group');
     }
 
 }

@@ -20,7 +20,7 @@
  * @license    http://www.venustheme.com/LICENSE-1.0.html
  */
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
 	<default>
 		<vesbrand>
 			<general_settings>
@@ -60,8 +60,8 @@
 				<mobile_items>1</mobile_items>
 				<tablet_small_items>2</tablet_small_items>
 				<tablet_items>3</tablet_items>
-				<portrait_items>4</portrait_items>
-				<large_items>4</large_items>
+				<portrait_items>5</portrait_items>
+				<large_items>6</large_items>
 				<autoplay>1</autoplay>
 				<autoplay_timeout>3000</autoplay_timeout>
 				<item_per_page>4</item_per_page>

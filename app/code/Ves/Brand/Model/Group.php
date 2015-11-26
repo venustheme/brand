@@ -36,7 +36,7 @@ class Group extends \Magento\Framework\Model\AbstractModel
     /**
      * Product collection factory
      *
-     * @var \Magento\Catalog\Model\Resource\Product\CollectionFactory
+     * @var \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory
      */
     protected $_productCollectionFactory;
 
@@ -61,9 +61,9 @@ class Group extends \Magento\Framework\Model\AbstractModel
      * @param \Magento\Framework\Model\Context                          $context                  
      * @param \Magento\Framework\Registry                               $registry                 
      * @param \Magento\Store\Model\StoreManagerInterface                $storeManager             
-     * @param \Ves\Brand\Model\Resource\Group|null                      $resource                 
-     * @param \Ves\Brand\Model\Resource\Group\Collection|null           $resourceCollection       
-     * @param \Magento\Catalog\Model\Resource\Product\CollectionFactory $productCollectionFactory 
+     * @param \Ves\Brand\Model\ResourceModel\Group|null                      $resource                 
+     * @param \Ves\Brand\Model\ResourceModel\Group\Collection|null           $resourceCollection       
+     * @param \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory 
      * @param \Magento\Store\Model\StoreManagerInterface                $storeManager             
      * @param \Magento\Framework\UrlInterface                           $url                      
      * @param \Magento\Framework\App\Config\ScopeConfigInterface        $scopeConfig              
@@ -73,9 +73,9 @@ class Group extends \Magento\Framework\Model\AbstractModel
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Ves\Brand\Model\Resource\Group $resource = null,
-        \Ves\Brand\Model\Resource\Group\Collection $resourceCollection = null,
-        \Magento\Catalog\Model\Resource\Product\CollectionFactory $productCollectionFactory,
+        \Ves\Brand\Model\ResourceModel\Group $resource = null,
+        \Ves\Brand\Model\ResourceModel\Group\Collection $resourceCollection = null,
+        \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\UrlInterface $url,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
@@ -95,7 +95,7 @@ class Group extends \Magento\Framework\Model\AbstractModel
      */
     public function _construct()
     {
-        $this->_init('Ves\Brand\Model\Resource\Group');
+        $this->_init('Ves\Brand\Model\ResourceModel\Group');
     }
 
     /**

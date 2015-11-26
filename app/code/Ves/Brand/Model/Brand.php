@@ -36,7 +36,7 @@ class Brand extends \Magento\Framework\Model\AbstractModel
     /**
      * Product collection factory
      *
-     * @var \Magento\Catalog\Model\Resource\Product\CollectionFactory
+     * @var \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory
      */
     protected $_productCollectionFactory;
 
@@ -59,9 +59,9 @@ class Brand extends \Magento\Framework\Model\AbstractModel
      * @param \Magento\Framework\Model\Context                          $context                  
      * @param \Magento\Framework\Registry                               $registry                 
      * @param \Magento\Store\Model\StoreManagerInterface                $storeManager             
-     * @param \Ves\Brand\Model\Resource\Brand|null                      $resource                 
-     * @param \Ves\Brand\Model\Resource\Brand\Collection|null           $resourceCollection       
-     * @param \Magento\Catalog\Model\Resource\Product\CollectionFactory $productCollectionFactory 
+     * @param \Ves\Brand\Model\ResourceModel\Brand|null                      $resource                 
+     * @param \Ves\Brand\Model\ResourceModel\Brand\Collection|null           $resourceCollection       
+     * @param \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory 
      * @param \Magento\Store\Model\StoreManagerInterface                $storeManager             
      * @param \Magento\Framework\UrlInterface                           $url                      
      * @param \Ves\Brand\Helper\Data                                    $brandHelper              
@@ -71,9 +71,9 @@ class Brand extends \Magento\Framework\Model\AbstractModel
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Ves\Brand\Model\Resource\Brand $resource = null,
-        \Ves\Brand\Model\Resource\Brand\Collection $resourceCollection = null,
-        \Magento\Catalog\Model\Resource\Product\CollectionFactory $productCollectionFactory,
+        \Ves\Brand\Model\ResourceModel\Brand $resource = null,
+        \Ves\Brand\Model\ResourceModel\Brand\Collection $resourceCollection = null,
+        \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\UrlInterface $url,
         \Ves\Brand\Helper\Data $brandHelper,
@@ -93,7 +93,7 @@ class Brand extends \Magento\Framework\Model\AbstractModel
      */
     public function _construct()
     {
-        $this->_init('Ves\Brand\Model\Resource\Brand');
+        $this->_init('Ves\Brand\Model\ResourceModel\Brand');
     }
 
     /**

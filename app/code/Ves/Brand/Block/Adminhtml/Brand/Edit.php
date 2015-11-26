@@ -58,7 +58,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
 
     	parent::_construct();
 
-    	if($this->_isAllowedAction('Ves_Brand::brand_manage')){
+    	if($this->_isAllowedAction('Ves_Brand::brand_save')){
     		$this->buttonList->update('save','label',__('Save Brand'));
     		$this->buttonList->add(
                 'saveandcontinue',
@@ -77,7 +77,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
     		$this->buttonList->remove('save');
     	}
 
-    	if ($this->_isAllowedAction('Ves_Brand::brand_manage')) {
+    	if ($this->_isAllowedAction('Ves_Brand::brand_delete')) {
             $this->buttonList->update('delete', 'label', __('Delete Brand'));
         } else {
             $this->buttonList->remove('delete');

@@ -20,7 +20,8 @@
  * @license    http://www.venustheme.com/LICENSE-1.0.html
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 	<head>
 		<css src="Ves_Brand::css/owl.carousel.min.css" />
 		<css src="Ves_Brand::css/bootstrap.min.css" />

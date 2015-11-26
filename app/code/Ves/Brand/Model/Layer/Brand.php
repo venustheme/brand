@@ -28,7 +28,7 @@ class Brand extends \Magento\Catalog\Model\Layer
     /**
      * Retrieve current layer product collection
      *
-     * @return \Magento\Catalog\Model\Resource\Product\Collection
+     * @return \Magento\Catalog\Model\ResourceModel\Product\Collection
      */
     public function getProductCollection()
     {

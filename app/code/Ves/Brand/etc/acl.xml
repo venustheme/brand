@@ -20,13 +20,28 @@
  * @license    http://www.venustheme.com/LICENSE-1.0.html
  */
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Acl/etc/acl.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Ves_Brand::brand" title="Ves Brand" sortOrder="40">
-                    <resource id="Ves_Brand::brand_manage" title="Brand Manage" sortOrder="20" />
-                    <resource id="Ves_Brand::brand_group_manage" title="Brand Group Manage" sortOrder="20" />
+                <resource id="Magento_Backend::brand_elements" title="Ves Brand">
+                    <resource id="Ves_Brand::brand" title="Brands" sortOrder="10">
+                        <resource id="Ves_Brand::brand_edit" title="Edit Brand" sortOrder="10" />
+                        <resource id="Ves_Brand::brand_save" title="Save Brand" sortOrder="20" />
+                        <resource id="Ves_Brand::brand_delete" title="Delete Brand" sortOrder="30" />
+                    </resource>
+                    <resource id="Ves_Brand::group" title="Groups" sortOrder="30">
+                        <resource id="Ves_Brand::group_edit" title="Save Group" sortOrder="10" />
+                        <resource id="Ves_Brand::group_save" title="Save Group" sortOrder="20" />
+                        <resource id="Ves_Brand::group_delete" title="Delete Group" sortOrder="30" />
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Ves_Brand::config_brand" title="Brand" />
+                        </resource>
+                    </resource>
                 </resource>
             </resource>
         </resources>

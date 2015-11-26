@@ -87,7 +87,7 @@ class Design extends \Magento\Backend\Block\Widget\Form\Generic implements
         /*
          * Checking if user have permissions to save information
          */
-        $isElementDisabled = !$this->_isAllowedAction('Ves_Brand::brand_manage');
+        $isElementDisabled = !$this->_isAllowedAction('Ves_Brand::brand_edit');
 
         /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create(['data' => ['html_id_prefix' => 'brand_']]);

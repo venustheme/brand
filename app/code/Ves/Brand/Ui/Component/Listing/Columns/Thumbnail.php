@@ -82,7 +82,7 @@ class Thumbnail extends \Magento\Ui\Component\Listing\Columns\Column
      * @param array $dataSource
      * @return void
      */
-    public function prepareDataSource(array & $dataSource)
+    public function prepareDataSource(array $dataSource)
     {
 
         /** @var \Magento\Framework\Filesystem\Directory\Read $mediaDirectory */
@@ -94,7 +94,8 @@ class Thumbnail extends \Magento\Ui\Component\Listing\Columns\Column
         if (isset($dataSource['data']['items']))
         {            
             $fieldName = $this->getData('name');
-            foreach ($dataSource['data']['items'] as & $item) {
+            foreach ($dataSource['data']['items'] as &$item) {
+                if(!isset($item['thumbnail'])) continue;
                 if($item['thumbnail']){
                     $thumbnailUrl = $path.$item['thumbnail'];
                     $item[$fieldName . '_src'] = $thumbnailUrl;
@@ -107,6 +108,7 @@ class Thumbnail extends \Magento\Ui\Component\Listing\Columns\Column
                 }
             }
         }
+        return $dataSource;
     }
 
     /**

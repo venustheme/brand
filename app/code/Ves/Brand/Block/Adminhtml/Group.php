@@ -38,7 +38,7 @@ class Group extends \Magento\Backend\Block\Widget\Grid\Container
 
         parent::_construct();
 
-        if ($this->_isAllowedAction('Ves_Brand::brand_group_manage')) {
+        if ($this->_isAllowedAction('Ves_Brand::group_edit')) {
             $this->buttonList->update('add', 'label', __('Add New Brand Group'));
         } else {
             $this->buttonList->remove('add');

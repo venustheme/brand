@@ -76,7 +76,7 @@ class BrandActions extends Column
      * @param array $dataSource
      * @return void
      */
-    public function prepareDataSource(array & $dataSource)
+    public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
@@ -107,5 +107,6 @@ class BrandActions extends Column
                 }*/
             }
         }
+        return $dataSource;
     }
 }

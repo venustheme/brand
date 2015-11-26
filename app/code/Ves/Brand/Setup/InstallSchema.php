@@ -311,7 +311,7 @@ class InstallSchema implements InstallSchemaInterface
  			'unique' => 0,
  			'default' => '',
  			'sort_order' => 100,
- 			'is_global' => \Magento\Catalog\Model\Resource\Eav\Attribute::SCOPE_STORE,
+ 			'is_global' => \Magento\Catalog\Model\ResourceModel\Eav\Attribute::SCOPE_STORE,
  			'is_required' => 0,
  			'is_configurable' => 1,
  			'is_searchable' => 0,

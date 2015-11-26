@@ -20,7 +20,7 @@
  * @license    http://www.venustheme.com/LICENSE-1.0.html
  */
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/App/etc/routes.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="standard">
         <route id="vesbrand" frontName="vesbrand">
             <module name="Ves_Brand" before="Magento_Backend" />

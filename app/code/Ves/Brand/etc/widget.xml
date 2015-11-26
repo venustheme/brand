@@ -20,7 +20,8 @@
  * @license    http://www.venustheme.com/LICENSE-1.0.html
  */
 -->
-<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Widget/etc/widget.xsd">
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
 	<widget id="ves_brand_list" class="Ves\Brand\Block\Widget\Brandlist">
 		<label translate="true">Ves Brand List</label>
 		<description translate="true">Get brand list</description>

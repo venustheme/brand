@@ -20,36 +20,36 @@
  * @license    http://www.venustheme.com/LICENSE-1.0.html
  */
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 	<preference for="Magento\Catalog\Model\Layer" type="Ves\Brand\Model\Layer" />
 	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
 		<arguments>
 			<argument name="collections" xsi:type="array">
-				<item name="brand_listing_data_source" xsi:type="string">Ves\Brand\Model\Resource\Brand\Grid\Collection</item>
+				<item name="brand_listing_data_source" xsi:type="string">Ves\Brand\Model\ResourceModel\Brand\Grid\Collection</item>
 			</argument>
 		</arguments>
 	</type>
-	<type name="Ves\Brand\Model\Resource\Brand\Grid\Collection">
+	<type name="Ves\Brand\Model\ResourceModel\Brand\Grid\Collection">
 		<arguments>
 			<argument name="mainTable" xsi:type="string">ves_brand</argument>
 			<argument name="eventPrefix" xsi:type="string">ves_brand_grid_collection</argument>
 			<argument name="eventObject" xsi:type="string">brand_grid_collection</argument>
-			<argument name="resourceModel" xsi:type="string">Ves\Brand\Model\Resource\Brand</argument>
+			<argument name="resourceModel" xsi:type="string">Ves\Brand\Model\ResourceModel\Brand</argument>
 		</arguments>
 	</type>
 	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
 		<arguments>
 			<argument name="collections" xsi:type="array">
-				<item name="group_listing_data_source" xsi:type="string">Ves\Brand\Model\Resource\Group\Grid\Collection</item>
+				<item name="group_listing_data_source" xsi:type="string">Ves\Brand\Model\ResourceModel\Group\Grid\Collection</item>
 			</argument>
 		</arguments>
 	</type>
-	<type name="Ves\Brand\Model\Resource\Group\Grid\Collection">
+	<type name="Ves\Brand\Model\ResourceModel\Group\Grid\Collection">
 		<arguments>
 			<argument name="mainTable" xsi:type="string">ves_brand_group</argument>
 			<argument name="eventPrefix" xsi:type="string">ves_brand_grid_collection</argument>
 			<argument name="eventObject" xsi:type="string">group_grid_collection</argument>
-			<argument name="resourceModel" xsi:type="string">Ves\Brand\Model\Resource\Brand</argument>
+			<argument name="resourceModel" xsi:type="string">Ves\Brand\Model\ResourceModel\Brand</argument>
 		</arguments>
 	</type>
 	<type name="Ves\Brand\Model\Layer\Resolver">
@@ -69,4 +69,22 @@
 			<argument name="layerResolver" xsi:type="object">Ves\Brand\Model\Layer\Resolver</argument>
 		</arguments>
 	</type>
+	<virtualType name="BrandGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+	<virtualType name="BrandGridDataProvider" type="Ves\Brand\Ui\DataProvider\Brand\BrandDataProvider">
+        <arguments>
+            <argument name="filterPool" xsi:type="object" shared="false">BrandGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="GroupGridDataProvider" type="Ves\Brand\Ui\DataProvider\Brand\GroupDataProvider">
+        <arguments>
+            <argument name="filterPool" xsi:type="object" shared="false">BrandGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
 </config>
