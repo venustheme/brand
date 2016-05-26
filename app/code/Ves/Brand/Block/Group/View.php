@@ -81,7 +81,7 @@ class View extends \Magento\Framework\View\Element\Template
         ->addFieldToFilter('status',1)
         ->setOrder('position','ASC');
         $this->setCollection($brandCollection);
-        $template = 'group\view.phtml';
+        $template = 'group/view.phtml';
         if(!$this->hasData('template')){
             $this->setTemplate($template);
         }
