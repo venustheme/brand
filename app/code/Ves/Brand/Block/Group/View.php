@@ -52,8 +52,7 @@ class View extends \Magento\Framework\View\Element\Template
      * @param \Ves\Brand\Helper\Data                           $brandHelper  
      * @param \Ves\Brand\Model\Brand                           $brand        
      * @param \Magento\Store\Model\StoreManagerInterface       $storeManager 
-     * @param \Ves\Brand\Helper\Data                           $brandHelper  
-     * @param array                                            $data         
+     * @param array                                            $data
      */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
@@ -61,7 +60,6 @@ class View extends \Magento\Framework\View\Element\Template
         \Ves\Brand\Helper\Data $brandHelper,
         \Ves\Brand\Model\Brand $brand,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Ves\Brand\Helper\Data $brandHelper,
         array $data = []
         ) {
         $this->_brand = $brand;
@@ -81,7 +79,7 @@ class View extends \Magento\Framework\View\Element\Template
         ->addFieldToFilter('status',1)
         ->setOrder('position','ASC');
         $this->setCollection($brandCollection);
-        $template = 'group\view.phtml';
+        $template = 'group/view.phtml';
         if(!$this->hasData('template')){
             $this->setTemplate($template);
         }

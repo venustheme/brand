@@ -64,8 +64,7 @@ class Group extends \Magento\Framework\Model\AbstractModel
      * @param \Ves\Brand\Model\ResourceModel\Group|null                      $resource                 
      * @param \Ves\Brand\Model\ResourceModel\Group\Collection|null           $resourceCollection       
      * @param \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory 
-     * @param \Magento\Store\Model\StoreManagerInterface                $storeManager             
-     * @param \Magento\Framework\UrlInterface                           $url                      
+     * @param \Magento\Framework\UrlInterface                           $url
      * @param \Magento\Framework\App\Config\ScopeConfigInterface        $scopeConfig              
      * @param array                                                     $data                     
      */
@@ -76,7 +75,6 @@ class Group extends \Magento\Framework\Model\AbstractModel
         \Ves\Brand\Model\ResourceModel\Group $resource = null,
         \Ves\Brand\Model\ResourceModel\Group\Collection $resourceCollection = null,
         \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\UrlInterface $url,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         array $data = []

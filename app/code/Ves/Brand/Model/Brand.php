@@ -62,8 +62,7 @@ class Brand extends \Magento\Framework\Model\AbstractModel
      * @param \Ves\Brand\Model\ResourceModel\Brand|null                      $resource                 
      * @param \Ves\Brand\Model\ResourceModel\Brand\Collection|null           $resourceCollection       
      * @param \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory 
-     * @param \Magento\Store\Model\StoreManagerInterface                $storeManager             
-     * @param \Magento\Framework\UrlInterface                           $url                      
+     * @param \Magento\Framework\UrlInterface                           $url
      * @param \Ves\Brand\Helper\Data                                    $brandHelper              
      * @param array                                                     $data                     
      */
@@ -74,7 +73,6 @@ class Brand extends \Magento\Framework\Model\AbstractModel
         \Ves\Brand\Model\ResourceModel\Brand $resource = null,
         \Ves\Brand\Model\ResourceModel\Brand\Collection $resourceCollection = null,
         \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\UrlInterface $url,
         \Ves\Brand\Helper\Data $brandHelper,
         array $data = []

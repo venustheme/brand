@@ -52,8 +52,7 @@ class GroupList extends \Magento\Framework\View\Element\Template
      * @param \Ves\Brand\Helper\Data                           $brandHelper  
      * @param \Ves\Brand\Model\Group                           $group        
      * @param \Magento\Store\Model\StoreManagerInterface       $storeManager 
-     * @param \Ves\Brand\Helper\Data                           $brandHelper  
-     * @param array                                            $data         
+     * @param array                                            $data
      */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
@@ -61,7 +60,6 @@ class GroupList extends \Magento\Framework\View\Element\Template
         \Ves\Brand\Helper\Data $brandHelper,
         \Ves\Brand\Model\Group $group,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Ves\Brand\Helper\Data $brandHelper,
         array $data = []
         ) {
         $this->_group = $group;
