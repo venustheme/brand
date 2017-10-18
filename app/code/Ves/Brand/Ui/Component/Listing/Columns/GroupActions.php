@@ -26,9 +26,6 @@ use Magento\Ui\Component\Listing\Columns\Column;
 use Ves\Brand\Block\Adminhtml\Group\Grid\Renderer\Action\UrlBuilder;
 use Magento\Framework\UrlInterface;
 
-/**
- * Class GroupActions
- */
 class GroupActions extends Column
 {
 	/** Url Path */
@@ -85,14 +82,6 @@ class GroupActions extends Column
                     $item[$name]['edit'] = [
                         'href' => $this->urlBuilder->getUrl($this->editUrl, ['group_id' => $item['group_id']]),
                         'label' => __('Edit')
-                    ];
-                    $item[$name]['delete'] = [
-                        'href' => $this->urlBuilder->getUrl(self::GROUP_URL_PATH_DELETE, ['group_id' => $item['group_id']]),
-                        'label' => __('Delete'),
-                        'confirm' => [
-                        'title' => __('Delete ${ $.$data.title }'),
-                        'message' => __('Are you sure you wan\'t to delete a ${ $.$data.title } record?')
-                        ]
                     ];
                 }
             }

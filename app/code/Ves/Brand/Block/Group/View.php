@@ -40,13 +40,6 @@ class View extends \Magento\Framework\View\Element\Template
     protected $_brand;
 
     /**
-     * Store manager
-     *
-     * @var \Magento\Store\Model\StoreManagerInterface
-     */
-    protected $_storeManager;
-
-    /**
      * @param \Magento\Framework\View\Element\Template\Context $context      
      * @param \Magento\Framework\Registry                      $registry     
      * @param \Ves\Brand\Helper\Data                           $brandHelper  
@@ -58,15 +51,12 @@ class View extends \Magento\Framework\View\Element\Template
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Framework\Registry $registry,
-        \Ves\Brand\Helper\Data $brandHelper,
         \Ves\Brand\Model\Brand $brand,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Ves\Brand\Helper\Data $brandHelper,
         array $data = []
         ) {
         $this->_brand = $brand;
         $this->_coreRegistry = $registry;
-        $this->_storeManager = $storeManager;
         $this->_brandHelper = $brandHelper;
         parent::__construct($context, $data);
     }
@@ -81,7 +71,7 @@ class View extends \Magento\Framework\View\Element\Template
         ->addFieldToFilter('status',1)
         ->setOrder('position','ASC');
         $this->setCollection($brandCollection);
-        $template = 'group\view.phtml';
+        $template = 'group/view.phtml';
         if(!$this->hasData('template')){
             $this->setTemplate($template);
         }
@@ -110,6 +100,7 @@ class View extends \Magento\Framework\View\Element\Template
         $brandRoute = $this->_brandHelper->getConfig('general_settings/route');
         $page_title = $this->_brandHelper->getConfig('brand_list_page/page_title');
 
+        if($breadcrumbsBlock){
         $breadcrumbsBlock->addCrumb(
             'home',
             [
@@ -136,6 +127,7 @@ class View extends \Magento\Framework\View\Element\Template
                 'link' => ''
             ]
             );
+        }
     }
 
     /**
@@ -194,6 +186,8 @@ class View extends \Magento\Framework\View\Element\Template
     {
         $block = $this->getLayout()->getBlock('vesbrand_toolbar');
         if ($block) {
+            $block->setDefaultOrder("position");
+            $block->removeOrderFromAvailableOrders("price");
             return $block;
         }
     }

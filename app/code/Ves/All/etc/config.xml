@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Venustheme
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the venustheme.com license that is
+ * available through the world-wide-web at this URL:
+ * http://venustheme.com/license
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Venustheme
+ * @package    Ves_All
+ * @copyright  Copyright (c) 2017 Landofcoder (http://www.venustheme.com/)
+ * @license    http://www.venustheme.com/LICENSE-1.0.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<vesall>
+            <general>
+                <enable_bootstrap_js>1</enable_bootstrap_js>
+                <enable_owlcarousel>1</enable_owlcarousel>
+                <enable_colorbox>1</enable_colorbox>
+                <enable_fancybox>1</enable_fancybox>
+                <enable_fancybox_mousewell>1</enable_fancybox_mousewell>
+            </general>
+        </vesall>
+	</default>
+</config>

@@ -42,7 +42,6 @@ class Meta extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
         } else {
             $isElementDisabled = true;
         }
-
         /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create();
 

@@ -18,7 +18,7 @@
  * @copyright  Copyright (c) 2014 Venustheme (http://www.venustheme.com/)
  * @license    http://www.venustheme.com/LICENSE-1.0.html
  */
-namespace Ves\Brand\Block\Adminhtml\Widget;
+namespace Ves\Brand\Block\Adminhtml\Widget\Form\Renderer;
 
 /**
  * CMS page chooser for Wysiwyg CMS widget

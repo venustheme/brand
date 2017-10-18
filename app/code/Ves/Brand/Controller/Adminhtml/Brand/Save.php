@@ -25,11 +25,6 @@ use Magento\Framework\App\Filesystem\DirectoryList;
 class Save extends \Magento\Backend\App\Action
 {
     /**
-     * @var \Magento\Framework\ObjectManagerInterface
-     */
-    protected $_objectManager;
-    
-    /**
      * @var \Magento\Framework\Filesystem
      */
     protected $_fileSystem;
@@ -40,13 +35,13 @@ class Save extends \Magento\Backend\App\Action
      * @param \Magento\Framework\Filesystem $filesystem
      */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context, 
-        \Magento\Framework\ObjectManagerInterface $objectManager,
-        \Magento\Framework\Filesystem $filesystem
+        \Magento\Backend\App\Action\Context $context,
+        \Magento\Framework\Filesystem $filesystem,
+        \Magento\Backend\Helper\Js $jsHelper
         ) {
-        $this->_objectManager = $objectManager;
         $this->_fileSystem = $filesystem;
-        parent::__construct($context, $objectManager);
+        $this->jsHelper = $jsHelper;
+        parent::__construct($context);
     }
 
     /**
@@ -116,6 +111,13 @@ class Save extends \Magento\Backend\App\Action
             $url_key = $this->_objectManager->create('Magento\Catalog\Model\Product\Url')->formatUrlKey($data['url_key']);
             $data['url_key'] = $url_key;
 
+            $links = $this->getRequest()->getPost('links');
+            $links = is_array($links) ? $links : [];
+            if(!empty($links) && isset($links['related'])){
+                $products = $this->jsHelper->decodeGridSerializedInput($links['related']);
+                $data['products'] = $products;
+            }
+
             $model->setData($data);
             try {
                 $model->save();
@@ -174,5 +176,4 @@ class Save extends \Magento\Backend\App\Action
             }
             return;
         }
-
     }

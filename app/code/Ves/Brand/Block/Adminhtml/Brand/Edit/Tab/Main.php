@@ -67,10 +67,11 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
      *
      * @return $this
      */
-    protected function _prepareForm(){
+    protected function _prepareForm() {
     	/** @var $model \Ves\Brand\Model\Brand */
     	$model = $this->_coreRegistry->registry('ves_brand');
-
+        
+        $wysiwygConfig = $this->_wysiwygConfig->getConfig(['tab_id' => $this->getTabId()]);
     	/**
     	 * Checking if user have permission to save information
     	 */
@@ -79,7 +80,6 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
     	}else {
     		$isElementDisabled = true;
     	}
-
     	/** @var \Magento\Framework\Data\Form $form */
     	$form = $this->_formFactory->create();
 
@@ -96,11 +96,11 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
     		'name',
     		'text',
     		[
-	    		'name' => 'name',
-	    		'label' => __('Brand Name'),
-	    		'title' => __('Brand Name'),
-	    		'required' => true,
-	    		'disabled' => $isElementDisabled
+                'name'     => 'name',
+                'label'    => __('Brand Name'),
+                'title'    => __('Brand Name'),
+                'required' => true,
+                'disabled' => $isElementDisabled
     		]
     		);
 
@@ -108,11 +108,11 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
     		'url_key',
     		'text',
     		[
-	    		'name' => 'url_key',
-	    		'label' => __('URL Key'),
-	    		'title' => __('URL Key'),
-                'note' => __('Empty to auto create url key'),
-	    		'disabled' => $isElementDisabled
+                'name'     => 'url_key',
+                'label'    => __('URL Key'),
+                'title'    => __('URL Key'),
+                'note'     => __('Empty to auto create url key'),
+                'disabled' => $isElementDisabled
     		]
     		);
 
@@ -120,10 +120,11 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             'group_id',
             'select',
             [
-                'label' => __('Brand Group'),
-                'title' => __('Brand Group'),
-                'name' => 'group_id',
-                'options' => $this->_viewHelper->getGroupList(),
+                'label'    => __('Brand Group'),
+                'title'    => __('Brand Group'),
+                'name'     => 'group_id',
+                'required' => true,
+                'options'  => $this->_viewHelper->getGroupList(),
                 'disabled' => $isElementDisabled
             ]
         );
@@ -132,10 +133,10 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
     		'image',
     		'image',
     		[
-	    		'name' => 'image',
-	    		'label' => __('Image'),
-	    		'title' => __('Image'),
-	    		'disabled' => $isElementDisabled
+                'name'     => 'image',
+                'label'    => __('Image'),
+                'title'    => __('Image'),
+                'disabled' => $isElementDisabled
     		]
     		);
 
@@ -143,25 +144,23 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
     		'thumbnail',
     		'image',
     		[
-	    		'name' => 'thumbnail',
-	    		'label' => __('Thumbnail'),
-	    		'title' => __('Thumbnail'),
-	    		'disabled' => $isElementDisabled
+                'name'     => 'thumbnail',
+                'label'    => __('Thumbnail'),
+                'title'    => __('Thumbnail'),
+                'disabled' => $isElementDisabled
     		]
     		);
-
-    	$wysiwygDescriptionConfig = $this->_wysiwygConfig->getConfig(['tab_id' => $this->getTabId()]);
 
     	$fieldset->addField(
             'description',
             'editor',
             [
-                'name' => 'description',
-                'style' => 'height:200px;',
-                'label' => __('Description'),
-    			'title' => __('Description'),
+                'name'     => 'description',
+                'style'    => 'height:200px;',
+                'label'    => __('Description'),
+                'title'    => __('Description'),
                 'disabled' => $isElementDisabled,
-                'config' => $wysiwygDescriptionConfig
+                'config'   => $wysiwygConfig
             ]
         );
 

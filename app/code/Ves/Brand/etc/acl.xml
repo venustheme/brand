@@ -31,7 +31,7 @@
                         <resource id="Ves_Brand::brand_delete" title="Delete Brand" sortOrder="30" />
                     </resource>
                     <resource id="Ves_Brand::group" title="Groups" sortOrder="30">
-                        <resource id="Ves_Brand::group_edit" title="Save Group" sortOrder="10" />
+                        <resource id="Ves_Brand::group_edit" title="Edit Group" sortOrder="10" />
                         <resource id="Ves_Brand::group_save" title="Save Group" sortOrder="20" />
                         <resource id="Ves_Brand::group_delete" title="Delete Group" sortOrder="30" />
                     </resource>

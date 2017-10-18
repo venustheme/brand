@@ -35,4 +35,46 @@ class Tabs extends \Magento\Backend\Block\Widget\Tabs
         $this->setDestElementId('edit_form');
         $this->setTitle(__('Brand Information'));
     }
+
+    /**
+     * @return $this
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.NPathComplexity)
+     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+     */
+    protected function _prepareLayout()
+    {
+        $this->addTab(
+                'general',
+                [
+                    'label' => __('Brand Information'),
+                    'content' => $this->getLayout()->createBlock('Ves\Brand\Block\Adminhtml\Brand\Edit\Tab\Main')->toHtml()
+                ]
+            );
+
+        $this->addTab(
+                'products',
+                [
+                    'label' => __('Products'),
+                    'url' => $this->getUrl('vesbrand/*/products', ['_current' => true]),
+                    'class' => 'ajax'
+                ]
+            );
+
+        $this->addTab(
+                'design',
+                [
+                    'label' => __('Design'),
+                    'content' => $this->getLayout()->createBlock('Ves\Brand\Block\Adminhtml\Brand\Edit\Tab\Design')->toHtml()
+                ]
+            );
+
+        $this->addTab(
+                'meta',
+                [
+                    'label' => __('Meta Data'),
+                    'content' => $this->getLayout()->createBlock('Ves\Brand\Block\Adminhtml\Brand\Edit\Tab\Meta')->toHtml()
+                ]
+            );
+    }
 }

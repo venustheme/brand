@@ -17,11 +17,12 @@ $i = 1;
 $x = 0;
 ?>
 <?php if ( $_brandCollection->count() ){ ?>
-<?php $total = $_brandCollection->getSize(); ?>
+<?php $total = $_brandCollection->count(); ?>
 <div class="brandlist">
 	<div class="block-content">
 		<?php foreach ($_brandCollection as $_brand) { ?>
 		<?php if( $lg_column_item == 1 || $x%$lg_column_item == 0){ ?>
+		<!-- ROW -->
 		<div class="row">
 			<?php } ?>
 			<div class="col-lg-<?php echo $lg_column ?> col-md-<?php echo $md_column ?> col-sm-<?php echo $sm_column ?> col-xs-<?php echo $xs_column ?>">
@@ -33,15 +34,17 @@ $x = 0;
 				</div>
 			</div>
 			<?php if( $lg_column_item == 1 || ($x+1)%$lg_column_item == 0 || $i == $total ) {  ?>
-		</div>
+		</div><!-- ROW -->
 		<?php } ?>
 		<?php $i++; $x++; ?>
 		<?php } ?>
 	</div>
+	<?php if($html = $block->getChildHtml('toolbar')){ ?>
 	<div class="brand-toolbar">
-		<?php echo $block->getChildHtml('toolbar'); ?>
+		<?php echo $html ?>
 	</div>
+	<?php } ?>
 </div>
 <?php }else{ ?>
-<div class="message info empty"><div><?php echo __('We can\'t find brands matching the selection.'); ?></div></div>
+<div class="message info empty"><div><?php echo __('We can\'t find brands matching the selection.'); ?></div>
 <?php } ?>

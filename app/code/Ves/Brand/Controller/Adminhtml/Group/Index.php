@@ -45,7 +45,7 @@ class Index extends \Ves\Brand\Controller\Adminhtml\Group
 		/**
 		 * Set active menu item
 		 */
-		$resultPage->setActiveMenu("Ves_Brand::grop");
+		$resultPage->setActiveMenu("Ves_Brand::brand");
 		$resultPage->getConfig()->getTitle()->prepend(__('Brand Groups'));
 
 		/**

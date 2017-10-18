@@ -40,19 +40,11 @@ class GroupList extends \Magento\Framework\View\Element\Template
     protected $_group;
 
     /**
-     * Store manager
-     *
-     * @var \Magento\Store\Model\StoreManagerInterface
-     */
-    protected $_storeManager;
-
-    /**
      * @param \Magento\Framework\View\Element\Template\Context $context      
      * @param \Magento\Framework\Registry                      $registry     
      * @param \Ves\Brand\Helper\Data                           $brandHelper  
      * @param \Ves\Brand\Model\Group                           $group        
      * @param \Magento\Store\Model\StoreManagerInterface       $storeManager 
-     * @param \Ves\Brand\Helper\Data                           $brandHelper  
      * @param array                                            $data         
      */
     public function __construct(
@@ -60,13 +52,12 @@ class GroupList extends \Magento\Framework\View\Element\Template
         \Magento\Framework\Registry $registry,
         \Ves\Brand\Helper\Data $brandHelper,
         \Ves\Brand\Model\Group $group,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Ves\Brand\Helper\Data $brandHelper,
         array $data = []
         ) {
+        if(!$this->getConfig('general_settings/enable')) return;
+        if(!$this->getConfig('general_settings/enable_menu')) return;
         $this->_group = $group;
         $this->_coreRegistry = $registry;
-        $this->_storeManager = $storeManager;
         $this->_brandHelper = $brandHelper;
         parent::__construct($context, $data);
     }
@@ -74,6 +65,7 @@ class GroupList extends \Magento\Framework\View\Element\Template
     public function _construct()
     {
         if(!$this->getConfig('general_settings/enable')) return;
+        if(!$this->getConfig('general_settings/enable_menu')) return;
         parent::_construct();
     }
 

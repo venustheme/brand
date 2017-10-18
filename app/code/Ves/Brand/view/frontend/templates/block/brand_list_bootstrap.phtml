@@ -23,6 +23,8 @@ $auto_play = $this->getConfig('brand_block/auto_play');
 $speed = $this->getConfig('brand_block/speed');
 $dots = $this->getConfig('brand_block/dots',true);
 $nav = $this->getConfig('brand_block/nav',true);
+$nav_prev = $this->getConfig('brand_block/nav_prev');
+$nav_next = $this->getConfig('brand_block/nav_next');
 
 ?>
 <?php if ( $_brandCollection->count() ){ ?>
@@ -34,12 +36,16 @@ if($total%$itemsperpage == 0){
 }else{
 	$totalPage = floor($total/$itemsperpage)+1;
 }
+$pretext                = $_helper->filter($this->getConfig('brand_block/pretext'));
 ?>
 <div class="block widget ves-widget brand-widget <?php echo $addition_class?$addition_class:'' ?>">
 	<?php if($title){ ?>
 	<div class="block-title">
 		<strong><?php echo $title ?></strong>
 	</div>
+	<?php } ?>
+	<?php if($pretext!=''){ ?>
+	<div class="pretext-html"><?php echo $pretext ?></div>
 	<?php } ?>
 	<div id="productcarousel-<?php echo $blockId ?>" class="block-content carousel slide" data-ride="carousel" data-interval="<?php echo $interval?$interval:"false"; ?>">
 		<!-- Indicators -->
@@ -82,15 +88,16 @@ if($total%$itemsperpage == 0){
 		</div>
 		<?php if($nav && $total>$xs_column_item){ ?>
 		<div class="carousel-controls">
-			<a class="left carousel-control" href="#productcarousel-<?php echo $blockId ?>" role="button" data-slide="prev"><?php echo __('Previous'); ?></a>
-			<a class="right carousel-control" href="#productcarousel-<?php echo $blockId ?>" role="button" data-slide="next"><?php echo __('Next'); ?></a>
+			<a class="left carousel-control" href="#productcarousel-<?php echo $blockId ?>" role="button" data-slide="prev"><?php echo $nav_prev?$nav_prev:'Previous'); ?></a>
+			<a class="right carousel-control" href="#productcarousel-<?php echo $blockId ?>" role="button" data-slide="next"><?php echo $nav_next?$nav_next:'Next'; ?></a>
 		</div>
 		<?php } ?>
 	</div>
 </div>
 <?php } ?>
 <script type="text/javascript">
-	require([
-		'Ves_Brand/js/bootstrap.min'
+	require([<?php if($this->helper("Ves\All\Helper\Data")->getConfig("enable_bootstrap_js")): ?>
+		"Ves_All/lib/bootstrap/js/bootstrap.min",
+	<?php endif; ?>
 		], function () {});
 </script>

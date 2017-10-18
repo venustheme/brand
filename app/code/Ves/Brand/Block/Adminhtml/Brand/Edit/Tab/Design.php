@@ -18,7 +18,7 @@
  * @copyright  Copyright (c) 2014 Venustheme (http://www.venustheme.com/)
  * @license    http://www.venustheme.com/LICENSE-1.0.html
  */
-namespace Ves\Brand\Block\Adminhtml\brand\Edit\Tab;
+namespace Ves\Brand\Block\Adminhtml\Brand\Edit\Tab;
 
 /**
  * @SuppressWarnings(PHPMD.DepthOfInheritance)
@@ -88,7 +88,6 @@ class Design extends \Magento\Backend\Block\Widget\Form\Generic implements
          * Checking if user have permissions to save information
          */
         $isElementDisabled = !$this->_isAllowedAction('Ves_Brand::brand_edit');
-
         /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create(['data' => ['html_id_prefix' => 'brand_']]);
 

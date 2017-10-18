@@ -22,8 +22,6 @@ namespace Ves\Brand\Block\Widget;
 
 class Brandlist extends AbstractWidget
 {
-
-
     /**
      * Group Collection
      */
@@ -42,6 +40,11 @@ class Brandlist extends AbstractWidget
     protected $_brandHelper;
 
     /**
+     * @var \Magento\Cms\Model\Block
+     */
+    protected $_blockModel;
+
+    /**
      * @param \Magento\Framework\View\Element\Template\Context $context         
      * @param \Magento\Framework\Registry                      $registry        
      * @param \Ves\Brand\Helper\Data                           $brandHelper     
@@ -53,12 +56,18 @@ class Brandlist extends AbstractWidget
         \Magento\Framework\Registry $registry,
         \Ves\Brand\Helper\Data $brandHelper,
         \Ves\Brand\Model\Brand $brandCollection,
+        \Magento\Cms\Model\Block $blockModel,
         array $data = []
         ) {
         $this->_brandCollection = $brandCollection;
         $this->_brandHelper = $brandHelper;
         $this->_coreRegistry = $registry;
+        $this->_blockModel = $blockModel;
         parent::__construct($context, $brandHelper);
+    }
+
+    public function getCmsBlockModel(){
+        return $this->_blockModel;
     }
 
     public function _toHtml()

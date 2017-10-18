@@ -78,14 +78,16 @@ class View extends \Magento\Framework\View\Element\Template
         $breadcrumbsBlock = $this->getLayout()->getBlock('breadcrumbs');
         $baseUrl = $this->_storeManager->getStore()->getBaseUrl();
         $brandRoute = $this->_brandHelper->getConfig('general_settings/route');
+        $brandRoute = $brandRoute?$brandRoute:"vesbrand/index/index";
         $page_title = $this->_brandHelper->getConfig('brand_list_page/page_title');
         $brand = $this->getCurrentBrand();
 
-        $group = '';
+        $group = false;
         if($groupId = $brand->getGroupId()){
             $group = $this->_groupModel->load($groupId);
         }
-
+        if($breadcrumbsBlock)
+        {
         $breadcrumbsBlock->addCrumb(
             'home',
             [
@@ -94,7 +96,7 @@ class View extends \Magento\Framework\View\Element\Template
                 'link' => $baseUrl
             ]
             );
-
+        
         $breadcrumbsBlock->addCrumb(
             'vesbrand',
             [
@@ -103,7 +105,7 @@ class View extends \Magento\Framework\View\Element\Template
                 'link' => $baseUrl.$brandRoute
             ]
             );
-
+        
         if($group && $group->getStatus()){
             $breadcrumbsBlock->addCrumb(
                 'group',
@@ -123,6 +125,7 @@ class View extends \Magento\Framework\View\Element\Template
                 'link' => ''
             ]
             );
+        }
     }
 
     public function getCurrentBrand()
@@ -164,15 +167,5 @@ class View extends \Magento\Framework\View\Element\Template
             $this->pageConfig->setDescription($meta_description);   
         }
         return parent::_prepareLayout();
-    }
-
-    /**
-     * Need use as _prepareLayout - but problem in declaring collection from
-     * another block (was problem with search result)
-     * @return $this
-     */
-    protected function _beforeToHtml()
-    {
-        return parent::_beforeToHtml();  
     }
 }

@@ -28,7 +28,16 @@
 				<route>ves-brand.html</route>
 				<url_prefix>brand</url_prefix>
 				<url_suffix>.html</url_suffix>
+				<enable_menu>1</enable_menu>
 			</general_settings>
+			<product_view_page>
+				<enable_brand_info>1</enable_brand_info>
+				<brand_layout_listing>0</brand_layout_listing>
+				<show_brand_text>1</show_brand_text>
+				<brand_text>Brands: </brand_text>
+				<show_brand_image>1</show_brand_image>
+				<show_brand_name>1</show_brand_name>
+			</product_view_page>
 			<brand_list_page>
 				<layout>grid</layout>
 				<show_brand_name>0</show_brand_name>
@@ -56,6 +65,7 @@
 				<show_brand_name>0</show_brand_name>
 				<number_item>12</number_item>
 				<carousel_layout>owl_carousel</carousel_layout>
+				<number_item_per_column>1</number_item_per_column>
 				<default_items>5</default_items>
 				<mobile_items>1</mobile_items>
 				<tablet_small_items>2</tablet_small_items>
@@ -64,6 +74,7 @@
 				<large_items>6</large_items>
 				<autoplay>1</autoplay>
 				<autoplay_timeout>3000</autoplay_timeout>
+				<autoplay_pauseonhover>1</autoplay_pauseonhover>
 				<item_per_page>4</item_per_page>
 				<lg_column_item>4</lg_column_item>
 				<md_column_item>4</md_column_item>
@@ -72,6 +83,10 @@
 				<interval>3000</interval>
 				<dots>1</dots>
 				<nav>1</nav>
+				<nav_prev>Prev</nav_prev>
+				<nav_next>Next</nav_next>
+				<loop>0</loop>
+				<rtl>0</rtl>
 			</brand_block>
 		</vesbrand>
 	</default>

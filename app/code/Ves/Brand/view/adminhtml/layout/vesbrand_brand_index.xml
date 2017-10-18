@@ -21,8 +21,10 @@
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
-	<update handle="formkey"/>
 	<body>
+		<referenceContainer name="page.main.actions">
+            <block class="Ves\Brand\Block\Adminhtml\Menu" name="ves_brand_menu" />
+        </referenceContainer>
         <referenceContainer name="content">
             <uiComponent name="brand_listing"/>
         </referenceContainer>

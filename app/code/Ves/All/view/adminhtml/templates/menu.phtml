@@ -1,0 +1,39 @@
+<?php
+/* @var $block \Ves\All\Block\Adminhtml\Menu */
+?>
+<div class="landofcoder-menu">
+    <div class="actions dropdown closable">
+        <button type="button" class="admin__action-dropdown" data-mage-init='{"dropdown":{}}' data-toggle="dropdown" aria-haspopup="true">
+            <span class="admin__action-dropdown-text"><?php echo $block->getCurrentItem()['title'] ?></span>
+        </button>
+        <ul class="dropdown-menu">
+            <?php $isCurrent = false; $i=0; ?>
+            <?php foreach ($block->getMenuItems() as $index => $item): ?>
+                <?php 
+                $hasChild = false;
+                if(isset($item['child']) && $item['child']) { 
+                    $hasChild = true;
+                }
+                if ($block->isCurrent($index)) {
+                    $isCurrent = true;
+                }
+                if ($isCurrent) {
+                    $i++;
+                }
+                ?>
+                <li class="<?php echo $i ?> <?php if ($isCurrent && $i==1): ?>current<?php endif; ?> <?php if (isset($item['separator'])): ?>separator<?php endif; ?> <?php if ($hasChild): ?>has-child is-parent-menu dropdown-child<?php endif; ?> level0">
+                    <a href="<?php echo $item['url'] ?>" class="<?php if ($hasChild): ?>dropbtn<?php endif; ?>" <?php echo $block->renderAttributes($item) ?>><?php echo $item['title'] ?></a>
+                    <?php if($hasChild) { ?>
+                    <ul class="dropdown-menu-child dropdown-content">
+                    <?php foreach($item['child'] as $child_index => $child_item) { ?>
+                        <li class="<?php if ($isCurrent && $i==1): ?>current<?php endif; ?> <?php if (isset($child_item['separator'])): ?>separator<?php endif; ?> menu-child level1">
+                         <a href="<?php echo $child_item['url'] ?>" <?php echo $block->renderAttributes($child_item) ?>><?php echo $child_item['title'] ?></a>
+                        </li>
+                    <?php } ?>
+                    </ul>
+                    <?php } ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>

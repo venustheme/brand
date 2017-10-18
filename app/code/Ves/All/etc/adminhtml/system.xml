@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Venustheme
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the venustheme.com license that is
+ * available through the world-wide-web at this URL:
+ * http://venustheme.com/license
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Venustheme
+ * @package    Ves_All
+ * @copyright  Copyright (c) 2017 Landofcoder (http://www.venustheme.com/)
+ * @license    http://www.venustheme.com/LICENSE-1.0.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+	<system>
+		<tab id="vesalltab" translate="label" sortOrder="400">
+			<label><![CDATA[<a href="http://venustheme.com" target="_BLANK" title="Venustheme.com - Premium Magento Template Club">Venustheme.com</a>]]></label>
+		</tab>
+		<section id="vesall" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+			<class>separator-top</class>
+			<label>All</label>
+			<tab>vesalltab</tab>
+			<resource>Ves_All::config</resource>
+			<group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>General Settings</label>
+				
+				<field id="enable_bootstrap_js" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enabled Bootstrap Js</label>
+					<comment>Version: 3.3.5</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+
+				<field id="enable_owlcarousel" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enabled Owl Carousel Js</label>
+					<comment>Version: 2.0.0-beta.3</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+
+				<field id="enable_colorbox" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enabled Colorbox Popup Js</label>
+					<comment>Version: 1.5.14</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+
+				<field id="enable_fancybox" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enabled Fancybox Popup Js</label>
+					<comment>Version: 2.1.5</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+
+				<field id="enable_fancybox_mousewell" translate="label comment" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enabled Fancybox Mousewell Js</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends><field id="enable_fancybox">1</field></depends>
+				</field>
+			</group>
+		</section>
+		<section id="veslicense" translate="label" type="text" sortOrder="990" showInDefault="1" showInWebsite="1" showInStore="1">
+			<class>separator-top</class>
+			<label>Mange Licenses</label>
+			<tab>vesalltab</tab>
+			<resource>Ves_All::config</resource>
+			<group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="licenses" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Mange Licenses</label>
+					<frontend_model>Ves\All\Block\Adminhtml\System\ListLicense</frontend_model>
+				</field>
+			</group>
+		</section>
+		<section id="vesmarket" translate="label" type="text" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+			<class>separator-top</class>
+			<label>Market</label>
+			<tab>vesalltab</tab>
+			<resource>Ves_All::config</resource>
+			<group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="licenses" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Market</label>
+					<frontend_model>Ves\All\Block\Adminhtml\System\Market</frontend_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

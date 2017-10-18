@@ -134,7 +134,7 @@ class Router implements RouterInterface
                 return null;
             }
             $route = $_brandHelper->getConfig('general_settings/route');
-            if( $urlKey == $route )
+            if( $route !='' && $urlKey == $route )
             {
                 $request->setModuleName('vesbrand')
                 ->setControllerName('index')

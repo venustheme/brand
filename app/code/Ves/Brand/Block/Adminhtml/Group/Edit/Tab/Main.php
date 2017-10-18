@@ -61,16 +61,16 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
      *
      * @return $this
      */
-    protected function _prepareForm(){
+    protected function _prepareForm() {
     	/** @var $model \Ves\Brand\Model\Brand */
     	$model = $this->_coreRegistry->registry('ves_brand');
 
     	/**
     	 * Checking if user have permission to save information
     	 */
-    	if($this->_isAllowedAction('Ves_Brand::group_edit')){
+    	if ($this->_isAllowedAction('Ves_Brand::group_edit')) {
     		$isElementDisabled = false;
-    	}else {
+    	} else {
     		$isElementDisabled = true;
     	}
 

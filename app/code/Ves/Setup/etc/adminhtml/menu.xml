@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Venustheme
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Venustheme.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.venustheme.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Venustheme
+ * @package    Ves_Setup
+ * @copyright  Copyright (c) 2014 Venustheme (http://www.venustheme.com/)
+ * @license    http://www.venustheme.com/LICENSE-1.0.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+	<menu>
+		<add id="Ves_Setup::theme" title="Setup" module="Ves_Setup" sortOrder="1000" resource="Ves_Setup::configuration" parent="Ves_All::ves_all"/>
+		<add id="Ves_Setup::import" title="Import" module="Ves_Setup" sortOrder="10" parent="Ves_Setup::theme" action="vessetup/import/index" resource="Ves_Setup::configuration"/>
+		<add id="Ves_Setup::export" title="Export" module="Ves_Setup" sortOrder="20" parent="Ves_Setup::theme" action="vessetup/export/index" resource="Ves_Setup::configuration"/>
+	</menu>
+</config>

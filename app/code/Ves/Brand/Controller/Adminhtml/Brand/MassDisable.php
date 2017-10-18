@@ -25,9 +25,6 @@ use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
 use Ves\Brand\Model\ResourceModel\Brand\CollectionFactory;
 
-/**
- * Class MassDisable
- */
 class MassDisable extends \Magento\Backend\App\Action
 {
     /**

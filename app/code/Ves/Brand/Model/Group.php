@@ -59,8 +59,7 @@ class Group extends \Magento\Framework\Model\AbstractModel
 
     /**
      * @param \Magento\Framework\Model\Context                          $context                  
-     * @param \Magento\Framework\Registry                               $registry                 
-     * @param \Magento\Store\Model\StoreManagerInterface                $storeManager             
+     * @param \Magento\Framework\Registry                               $registry                             
      * @param \Ves\Brand\Model\ResourceModel\Group|null                      $resource                 
      * @param \Ves\Brand\Model\ResourceModel\Group\Collection|null           $resourceCollection       
      * @param \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory 
@@ -72,7 +71,6 @@ class Group extends \Magento\Framework\Model\AbstractModel
     public function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Ves\Brand\Model\ResourceModel\Group $resource = null,
         \Ves\Brand\Model\ResourceModel\Group\Collection $resourceCollection = null,
         \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,

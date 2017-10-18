@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Venustheme
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the venustheme.com license that is
+ * available through the world-wide-web at this URL:
+ * http://venustheme.com/license
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Venustheme
+ * @package    Ves_All
+ * @copyright  Copyright (c) 2017 Landofcoder (http://www.venustheme.com/)
+ * @license    http://www.venustheme.com/LICENSE-1.0.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+	<menu>
+		<add id="Ves_All::ves_all" title="Venustheme" module="Ves_All" sortOrder="12" resource="Ves_All::ves_all"/> 
+		<add id="Ves_All::license" title="Ves" module="Ves_All" sortOrder="900" resource="Ves_All::license" parent="Ves_All::ves_all" />
+		<add id="Ves_All::license_manage" title="Licenses" module="Ves_All" sortOrder="6" parent="Ves_All::license" action="adminhtml/system_config/edit/section/veslicense" resource="Ves_All::config_license"/>
+		<add id="Ves_All::market_manage" title="Market" module="Ves_All" sortOrder="6" parent="Ves_All::license" action="adminhtml/system_config/edit/section/vesmarket" resource="Ves_All::config_license"/>
+	</menu> 
+</config>

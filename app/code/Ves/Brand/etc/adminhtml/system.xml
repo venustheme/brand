@@ -22,13 +22,10 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
 	<system>
-		<tab id="venustheme" translate="label" sortOrder="400">
-			<label>Venustheme Extensions</label>
-		</tab>
-		<section id="vesbrand" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+		<section id="vesbrand" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
 			<class>separator-top</class>
 			<label>Brand</label>
-			<tab>venustheme</tab>
+			<tab>vesalltab</tab>
 			<resource>Ves_Brand::config_brand</resource>
 			<group id="general_settings" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
 				<label>General Settings</label>
@@ -44,6 +41,36 @@
 				</field>
 				<field id="url_suffix" translate="label comment" type="text" sortOrder="28" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>Brand Url Suffix</label>
+				</field>
+				<field id="enable_menu" translate="label comment" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enable Brand Categrories Menu</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+			<group id="product_view_page" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Brand Info On Product View Page</label>
+				<field id="enable_brand_info" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enabled Brand Block</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="brand_layout_listing" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Show Brand As Listing</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="show_brand_text" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Show Brand Text</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="brand_text" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Brand Text</label>
+				</field>
+				<field id="show_brand_image" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Show Brand Logo</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="show_brand_name" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Show Brand Name</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
 			</group>
 			<group id="brand_list_page" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -138,6 +165,11 @@
 				<field id="title" type="text"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
 					<label>Title</label>
 				</field>
+				<field id="pretext" translate="label comment" type="editor" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Pretext HTML</label>
+					<frontend_model>Ves\Brand\Block\Adminhtml\System\Config\Form\Field\Editor</frontend_model>
+					<comment><![CDATA[Show after title. Empty to hide]]></comment>
+				</field>
 				<field id="brand_groups" type="multiselect" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
 					<label>Brand Group</label>
 					<source_model>Ves\Brand\Model\Source\Brandgrouplist</source_model>
@@ -156,9 +188,9 @@
 					<label>Carousel Layout</label>
 					<source_model>Ves\Brand\Model\Source\Carousellayout</source_model>
 				</field>
-				<field id="default_items" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="70">
-					<label>Number Columns On Page (Default)</label>
-					<comment >Show number items when screen size between 1199px and 980px</comment>
+				<field id="number_item_per_column" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="65">
+					<label>Number Item per Column</label>
+					<comment >Default is 1</comment>
 					<depends>
 						<field id="carousel_layout">owl_carousel</field>
 					</depends>
@@ -191,6 +223,13 @@
 						<field id="carousel_layout">owl_carousel</field>
 					</depends>
 				</field>
+				<field id="default_items" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="112">
+					<label>Number Columns On Page (Default)</label>
+					<comment >Show number items when screen size between 1199px and 980px</comment>
+					<depends>
+						<field id="carousel_layout">owl_carousel</field>
+					</depends>
+				</field>
 				<field id="large_items" type="text"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="120">
 					<label>Number Columns On Page (Large display)</label>
 					<comment >Show number items when screen size 1200px and up</comment>
@@ -206,6 +245,13 @@
 					<label>Autoplay Timeout</label>
 					<comment>Autoplay interval timeout.</comment>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="autoplay_pauseonhover" type="select"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="126">
+					<label>Pause on Hover</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+						<field id="carousel_layout">owl_carousel</field>
+					</depends>
 				</field>
 				<field id="item_per_page" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="130">
 					<label>Item Per Page</label>
@@ -248,6 +294,20 @@
 						<field id="carousel_layout">bootstrap_carousel</field>
 					</depends>
 				</field>
+				<field id="loop" type="select"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="185">
+					<label>Loop</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+						<field id="carousel_layout">owl_carousel</field>
+					</depends>
+				</field>
+				<field id="rtl" type="select"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="187">
+					<label>RTL</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+						<field id="carousel_layout">owl_carousel</field>
+					</depends>
+				</field>
 				<field id="dots" type="select"  translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="190">
 					<label>Show dots navigations</label>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -255,6 +315,12 @@
 				<field id="nav" type="select" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="200">
 					<label>Show next/prev buttons.</label>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="nav_prev" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="210">
+					<label>Nav Prev</label>
+				</field>
+				<field id="nav_next" type="text" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="220">
+					<label>Nav Next</label>
 				</field>
 			</group>
 		</section>

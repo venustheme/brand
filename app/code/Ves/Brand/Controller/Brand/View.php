@@ -26,9 +26,6 @@ use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 use Ves\Brand\Model\Layer\Resolver;
 
-/**
- * Display Hello on screen
- */
 class View extends \Magento\Framework\App\Action\Action
 {
 

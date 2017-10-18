@@ -26,9 +26,6 @@ use Magento\Ui\Component\Listing\Columns\Column;
 use Ves\Brand\Block\Adminhtml\Brand\Grid\Renderer\Action\UrlBuilder;
 use Magento\Framework\UrlInterface;
 
-/**
- * Class BrandActions
- */
 class BrandActions extends Column
 {
 	/** Url Path */
@@ -86,14 +83,14 @@ class BrandActions extends Column
                         'href' => $this->urlBuilder->getUrl($this->editUrl, ['brand_id' => $item['brand_id']]),
                         'label' => __('Edit')
                     ];
-                    $item[$name]['delete'] = [
+                    /*$item[$name]['delete'] = [
                         'href' => $this->urlBuilder->getUrl(self::BRAND_URL_PATH_DELETE, ['brand_id' => $item['brand_id']]),
                         'label' => __('Delete'),
                         'confirm' => [
                             'title' => __('Delete ${ $.$data.title }'),
                             'message' => __('Are you sure you wan\'t to delete a ${ $.$data.title } record?')
                         ]
-                    ];
+                    ];*/
                 }
                 /*if (isset($item['url_key'])) {
                     $item[$name]['preview'] = [

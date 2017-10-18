@@ -177,8 +177,10 @@ class Brand extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     protected function _beforeDelete(\Magento\Framework\Model\AbstractModel $object)
     {
         $condition = ['brand_id = ?' => (int)$object->getId()];
-
         $this->getConnection()->delete($this->getTable('ves_brand_store'), $condition);
+
+        $condition = ['brand_id = ?' => (int)$object->getId()];
+        $this->getConnection()->delete($this->getTable('ves_brand_product'), $condition);
 
         return parent::_beforeDelete($object);
     }
@@ -228,11 +230,32 @@ class Brand extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 
         if ($insert) {
             $data = [];
-
             foreach ($insert as $storeId) {
                 $data[] = ['brand_id' => (int)$object->getId(), 'store_id' => (int)$storeId];
             }
             $this->getConnection()->insertMultiple($table, $data);
+        }
+
+
+        // Posts Related
+        if(null !== ($object->getData('products'))){
+            $table = $this->getTable('ves_brand_product');
+            $where = ['brand_id = ?' => (int)$object->getId()];
+            $this->getConnection()->delete($table, $where);
+
+            if($quetionProducts = $object->getData('products')){
+                $where = ['brand_id = ?' => (int)$object->getId()];
+                $this->getConnection()->delete($table, $where);
+                $data = [];
+                foreach ($quetionProducts as $k => $_post) {
+                    $data[] = [
+                    'brand_id' => (int)$object->getId(),
+                    'product_id' => $k,
+                    'position' => $_post['product_position']
+                    ];
+                }
+                $this->getConnection()->insertMultiple($table, $data);
+            }
         }
 
         return parent::_afterSave($object);
@@ -265,9 +288,19 @@ class Brand extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     {
         if ($object->getId()) {
             $stores = $this->lookupStoreIds($object->getId());
-
             $object->setData('store_id', $stores);
         }
+
+        if ($id = $object->getId()) {
+                $connection = $this->getConnection();
+                $select = $connection->select()
+                ->from($this->getTable('ves_brand_product'))
+                ->where(
+                    'brand_id = '.(int)$id
+                    );
+                $products = $connection->fetchAll($select);
+                $object->setData('products', $products);
+            } 
 
         return parent::_afterLoad($object);
     }

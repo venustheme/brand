@@ -40,19 +40,11 @@ class Brandpage extends \Magento\Framework\View\Element\Template
     protected $_brand;
 
     /**
-     * Store manager
-     *
-     * @var \Magento\Store\Model\StoreManagerInterface
-     */
-    protected $_storeManager;
-
-    /**
      * @param \Magento\Framework\View\Element\Template\Context $context      
      * @param \Magento\Framework\Registry                      $registry     
      * @param \Ves\Brand\Helper\Data                           $brandHelper  
      * @param \Ves\Brand\Model\Brand                           $brand        
      * @param \Magento\Store\Model\StoreManagerInterface       $storeManager 
-     * @param \Ves\Brand\Helper\Data                           $brandHelper  
      * @param array                                            $data         
      */
     public function __construct(
@@ -60,13 +52,10 @@ class Brandpage extends \Magento\Framework\View\Element\Template
         \Magento\Framework\Registry $registry,
         \Ves\Brand\Helper\Data $brandHelper,
         \Ves\Brand\Model\Brand $brand,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Ves\Brand\Helper\Data $brandHelper,
         array $data = []
         ) {
         $this->_brand = $brand;
         $this->_coreRegistry = $registry;
-        $this->_storeManager = $storeManager;
         $this->_brandHelper = $brandHelper;
         parent::__construct($context, $data);
     }
@@ -108,6 +97,8 @@ class Brandpage extends \Magento\Framework\View\Element\Template
         $brandRoute = $this->_brandHelper->getConfig('general_settings/route');
         $page_title = $this->_brandHelper->getConfig('brand_list_page/page_title');
 
+        if($breadcrumbsBlock){
+
         $breadcrumbsBlock->addCrumb(
             'home',
             [
@@ -124,6 +115,7 @@ class Brandpage extends \Magento\Framework\View\Element\Template
             'link' => ''
             ]
             );
+        }
     }
 
     /**
@@ -149,6 +141,7 @@ class Brandpage extends \Magento\Framework\View\Element\Template
     {
         $result = $this->_brandHelper->getConfig($key);
         if(!$result){
+
             return $default;
         }
         return $result;
@@ -187,6 +180,8 @@ class Brandpage extends \Magento\Framework\View\Element\Template
     {
         $block = $this->getLayout()->getBlock('vesbrand_toolbar');
         if ($block) {
+            $block->setDefaultOrder("position");
+            $block->removeOrderFromAvailableOrders("price");
             return $block;
         }
     }

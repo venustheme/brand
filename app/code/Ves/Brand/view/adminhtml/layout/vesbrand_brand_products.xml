@@ -1,14 +1,20 @@
 <?xml version="1.0"?>
-<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/layout_generic.xsd">
-    <container name="root" label="Root" output="1">
-        <block class="Ves\Brand\Block\Adminhtml\Brand\Edit\Tab\Product" name="author.edit.tab.product"/>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root" label="Root">
+        <block class="Ves\Brand\Block\Adminhtml\Brand\Edit\Tab\Products" name="brand.edit.tab.products"/>
         <block class="Magento\Backend\Block\Widget\Grid\Serializer" name="related_grid_serializer">
             <arguments>
-                <argument name="input_names" xsi:type="string">position</argument>
-                <argument name="grid_block" xsi:type="string">author.edit.tab.product</argument>
-                <argument name="callback" xsi:type="string">getSelectedProducts</argument>
-                <argument name="input_element_name" xsi:type="string">products</argument>
-                <argument name="reload_param_name" xsi:type="string">author_products</argument>
+                <argument name="input_names" xsi:type="string">product_position</argument>
+                <argument name="grid_block" xsi:type="string">brand.edit.tab.products</argument>
+                <argument name="callback" xsi:type="string">getSelectedBrandProducts</argument>
+                <argument name="input_element_name" xsi:type="string">links[related]</argument>
+                <argument name="reload_param_name" xsi:type="string">products</argument>
             </arguments>
         </block>
     </container>

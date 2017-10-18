@@ -4,7 +4,7 @@ $_helper = $this->helper('Ves\Brand\Helper\Data');
 $title = $this->getConfig('widget_title');
 $blockId = rand().time();
 
-// Boostrap Carousel
+	// Boostrap Carousel
 $itemsperpage = (int)$this->getConfig('item_per_page',6);
 $lg_column_item = (int)$this->getConfig('lg_column_item',6);
 $md_column_item = (int)$this->getConfig('md_column_item',6);
@@ -34,12 +34,23 @@ if($total%$itemsperpage == 0){
 }else{
 	$totalPage = floor($total/$itemsperpage)+1;
 }
+
+$html = '';
+$cmsblock = $this->getConfig('cmsblock');
+$pretext_html = $this->getConfig('pretext_html');
+if($cmsblock === 'pretext_html' && $pretext_html){
+	$html = base64_decode($pretext_html);
+}elseif($cmsblock!=''){
+	$html = $this->getCmsBlockModel()->load($cmsblock)->getContent();
+}
+$html = $_helper->filter($html);
 ?>
 <div class="block widget ves-widget brand-widget <?php echo $addition_class?$addition_class:'' ?>">
 	<?php if($title){ ?>
-	<div class="block-title">
-		<strong><?php echo $title ?></strong>
-	</div>
+	<div class="block-title"><strong><?php echo $title ?></strong></div>
+	<?php } ?>
+	<?php if($html!=''){ ?>
+	<div class="pretext-html"><?php echo $html ?></div>
 	<?php } ?>
 	<div id="productcarousel-<?php echo $blockId ?>" class="block-content carousel slide" data-ride="carousel" data-interval="<?php echo $interval?$interval:"false"; ?>">
 		<!-- Indicators -->
@@ -96,7 +107,8 @@ if($total%$itemsperpage == 0){
 <?php } ?>
 
 <script type="text/javascript">
-	require([
-		'Ves_Brand/js/bootstrap.min'
+	require([<?php if($this->helper("Ves\All\Helper\Data")->getConfig("enable_bootstrap_js")): ?>
+		"Ves_All/lib/bootstrap/js/bootstrap.min",
+	<?php endif; ?>
 		], function () {});
 </script>

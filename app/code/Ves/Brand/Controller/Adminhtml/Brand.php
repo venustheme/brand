@@ -26,9 +26,7 @@ use Magento\Framework\Registry;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\View\Result\LayoutFactory;
-/**
- * Class Index
- */
+
 abstract class Brand extends \Magento\Backend\App\Action
 {
     /**

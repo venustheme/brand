@@ -1,73 +1,95 @@
 <?php
-$_brandCollection = $block->getBrandCollection();
-$_helper = $this->helper('Ves\Brand\Helper\Data');
-$title = $this->getConfig('widget_title');
-$blockId = rand().time();
+$_brandCollection       = $block->getBrandCollection();
+$_helper                = $this->helper('Ves\Brand\Helper\Data');
+$title                  = $this->getConfig('widget_title');
+$show_brand_name        = $this->getConfig('show_brand_name');
 
-$default_items = $this->getConfig('default_items');
-$addition_class = $this->getConfig('addition_class');
-$show_brand_name = $this->getConfig('show_brand_name');
-$mobile_items = (int)$this->getConfig('mobile_items',1);
-$tablet_small_items = (int)$this->getConfig('tablet_small_items',2);
-$tablet_items = (int)$this->getConfig('tablet_items',3);
-$portrait_items = (int)$this->getConfig('portrait_items',4);
-$large_items = (int)$this->getConfig('large_items',5);
-$dots = $this->getConfig('dots',true);
-$nav = $this->getConfig('nav',true);
+$blockId                = rand().time();
+$number_item_per_column    = (int)$this->getConfig('number_item_per_column');
+if($number_item_per_column == '' || $number_item_per_column == 0)
+	$number_item_per_column = 1;
 
-$autoplay = $this->getConfig('autoplay',true);
-$autoplay_timeout = (int)$this->getConfig('autoplay_timeout',3000);
-$auto_play = $this->getConfig('auto_play');
-$speed = $this->getConfig('speed');
+$default_items          = $this->getConfig('default_items');
+$addition_class         = $this->getConfig('addition_class');
+$mobile_items           = (int)$this->getConfig('mobile_items',1);
+$tablet_small_items     = (int)$this->getConfig('tablet_small_items',2);
+$tablet_items           = (int)$this->getConfig('tablet_items',3);
+$portrait_items         = (int)$this->getConfig('portrait_items',4);
+$large_items            = (int)$this->getConfig('large_items',5);
+$dots                   = $this->getConfig('dots');
+$nav                    = $this->getConfig('nav');
+$nav_prev               = $this->getConfig('nav_prev');
+$nav_next               = $this->getConfig('nav_next');
+$loop                   = $this->getConfig('loop');
+$autoplay               = $this->getConfig('autoplay');
+$autoplay_timeout       = (int)$this->getConfig('autoplay_timeout',3000);
+$autoplay_pauseonhover  = (int)$this->getConfig('autoplay_pauseonhover');
+$auto_play              = $this->getConfig('auto_play');
+$speed                  = $this->getConfig('speed');
+$rtl                    = $this->getConfig('rtl');
+
+$html = '';
+$cmsblock = $this->getConfig('cmsblock');
+$pretext_html = $this->getConfig('pretext_html');
+if($cmsblock === 'pretext_html' && $pretext_html){
+	$html = base64_decode($pretext_html);
+}elseif($cmsblock!=''){
+	$html = $this->getCmsBlockModel()->load($cmsblock)->getContent();
+}
+$html = $_helper->filter($html);
 ?>
 <?php if ( $_brandCollection->count() ){ ?>
-<div class="block widget ves-widget brand-widget <?php if($addition_class){ echo $addition_class; } ?>">
+<?php
+$_collection = [];
+$i = $x = 0;
+$total  = $_brandCollection->count();
+$column = 8;
+if($total%$number_item_per_column == 0){
+	$column = $total/$number_item_per_column;
+}else{
+	$column = floor($total/$number_item_per_column)+1;
+}
+if($column<$default_items) $column = $default_items;
+$i = $x = 0;
+foreach ($_brandCollection as $_brand) {
+	if($i<$column){
+		$i++;
+	}else{
+		$i = 1;
+		$x++;
+	}
+	$_collection[$i][$x] = $_brand;
+} 
+?>
+<div class="block widget ves-widget brand-widget <?php echo $addition_class?$addition_class:'' ?>">
 	<?php if($title){ ?>
-	<div class="block-title">
-		<strong><?php echo $title ?></strong>
-	</div>
+	<div class="block-title"><strong><?php echo $title ?></strong></div>
 	<?php } ?>
-	<div class="block-content">
-		<ul class="owl-carousel ves-carousel<?php echo $blockId ?>">
-			<?php foreach ($_brandCollection as $_brand) { ?>
+	<?php if($html!=''){ ?>
+	<div class="pretext-html"><?php echo $html ?></div>
+	<?php } ?>
+	<div class="block-content brandowl-play">
+		<ul id="ves-carousel<?php echo $blockId ?>" class="owl-carousel ves-carousel<?php echo $blockId ?>" data-rtl="<?php echo $rtl?"true":"false" ?>" data-loop="<?php echo $loop?"true":"false" ?>" data-nav="false" data-dot="<?php echo $dots?"true":"false" ?>" data-autoplay="<?php echo $autoplay?"true":"false" ?>" data-autoplay-timeout="<?php echo $autoplay_timeout ?>" data-pauonhover="<?php echo $autoplay_pauseonhover?"true":"false" ?>" data-mobile-items="<?php echo (int)$mobile_items ?>" data-tablet-small-items="<?php echo (int)$tablet_small_items ?>" data-tablet-items="<?php echo (int)$tablet_items ?>" data-portrait-items="<?php echo (int)$portrait_items ?>" data-large-items="<?php echo (int)$default_items ?>" data-large-max-items="<?php echo (int)$large_items ?>" >
+			<?php foreach ($_collection as $_brandCollection) { ?>
 			<li class="item">
+				<?php foreach ($_brandCollection as $_brand) { ?>
 				<div class="brand-item">
 					<div class="brand-image"><a href="<?php echo $_brand->getUrl(); ?>" title="<?php echo $_brand->getName(); ?>"><img src="<?php echo $_brand->getThumbnailUrl(); ?>" alt="<?php echo $_brand->getName(); ?>"/></a></div>
 					<?php if($show_brand_name){ ?>
 					<div class="brand-name"><a href="<?php echo $_brand->getUrl(); ?>" title="<?php echo $_brand->getName(); ?>"><?php echo $_brand->getName() ?></a></div>
 					<?php } ?>
 				</div>
+				<?php } ?>
 			</li>
 			<?php } ?>
 		</ul>
+		<?php if($nav){ ?>
+		<a href="#" class="owl-left"><?php echo $nav_prev?$nav_prev:'Prev'; ?></a>
+		<a href="#" class="owl-right"><?php echo $nav_next?$nav_next:'Next'; ?></a>
+		<?php } ?>
 	</div>
 </div>
 <?php } ?>
 <script type="text/javascript">
-	require([
-		'jquery',
-		'mage/mage',
-		'Ves_Brand/js/owl.carousel'
-		], function () {
-			var owl = jQuery('.ves-carousel<?php echo $blockId ?>');
-			owl.owlCarousel({
-				rtl: false,
-				loop:true,
-				nav:<?php echo $nav?"true":"false" ?>,
-				dots:<?php echo $dots?"true":"false" ?>,
-				responsiveRefreshRate: false,
-				<?php if($autoplay){ ?>
-				autoplay:true,
-				autoplayTimeout: <?php echo $autoplay_timeout ?>,
-				autoplayHoverPause:true,
-				<?php } ?>
-				responsive:{
-					0 : { items: <?php echo $mobile_items ?>},
-					480 : {items: <?php echo $tablet_small_items ?>},
-					768 : {items: <?php echo $tablet_items ?>},
-					980 : {items: <?php echo $portrait_items ?>},
-					1200 : {items: <?php echo $large_items ?>}
-				}
-			});
-		});
+	require(['Ves_Brand/js/brand']);
 </script>

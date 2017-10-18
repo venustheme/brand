@@ -1,16 +1,127 @@
-Addition Class, Addition Class
-animateIn, animateIn
-animateOut, animateOut
-Auto Height, Auto Height
-Autoplay, Autoplay
-Navigation Speed, Navigation Speed
-Dots Speed, Dots Speed
-Show dots navigations, Show dots navigations
-Show next/prev buttons., Show next/prev buttons.
-Enable Custom Nav, Enable Custom Nav
-RTL Layout, RTL Layout
-Loop, Loop
-Lazy Load, Lazy Load
-Touch Drag, Touch Drag
-Mouse Drag, Mouse Drag
-Pull Drag, Pull Drag
+"Manage Brands","Manage Brands"
+"Add New Brand","Add New Brand"
+"Save Brand","Save Brand"
+"Save and Continue Edit","Save and Continue Edit"
+"Delete Brand","Delete Brand"
+"Edit Brand '%1'","Edit Brand '%1'"
+"New Brand","New Brand"
+"Page Layout","Page Layout"
+Layout,Layout
+"Layout Update XML","Layout Update XML"
+Design,Design
+"Brand Information","Brand Information"
+"Brand Name","Brand Name"
+"URL Key","URL Key"
+"Empty to auto create url key","Empty to auto create url key"
+"Brand Group","Brand Group"
+Image,Image
+Thumbnail,Thumbnail
+Description,Description
+"Store View","Store View"
+Position,Position
+Status,Status
+"Page Status","Page Status"
+"Meta Data","Meta Data"
+"Page Title","Page Title"
+Keywords,Keywords
+"Meta Keywords","Meta Keywords"
+"Meta Description","Meta Description"
+ID,ID
+Name,Name
+Type,Type
+"Attribute Set","Attribute Set"
+Visibility,Visibility
+SKU,SKU
+Price,Price
+Products,Products
+Preview,Preview
+"Manage Brand Groups","Manage Brand Groups"
+"Add New Brand Group","Add New Brand Group"
+"Save Group","Save Group"
+"Delete Group","Delete Group"
+"Edit Group '%1'","Edit Group '%1'"
+"New Group","New Group"
+"Group Information","Group Information"
+"Group Name","Group Name"
+"Show In Sidebar","Show In Sidebar"
+"WYSIWYG Editor","WYSIWYG Editor"
+Title,Title
+Home,Home
+"Go to Home Page","Go to Home Page"
+"The brand has been deleted.","The brand has been deleted."
+"We can't find a brand to delete.","We can't find a brand to delete."
+Brand,Brand
+"This brand no longer exits. ","This brand no longer exits. "
+"Edit Brand","Edit Brand"
+Brands,Brands
+"Please correct the data sent.","Please correct the data sent."
+"Something went wrong while saving the page.","Something went wrong while saving the page."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"A total of %1 record(s) have been disabled.","A total of %1 record(s) have been disabled."
+"A total of %1 record(s) have been enabled.","A total of %1 record(s) have been enabled."
+"You saved this brand.","You saved this brand."
+"Something went wrong while saving the brand.","Something went wrong while saving the brand."
+"Brand Groups","Brand Groups"
+"URL key already exists.","URL key already exists."
+"You saved this group.","You saved this group."
+Enabled,Enabled
+Disabled,Disabled
+List,List
+Grid,Grid
+No,No
+Yes,Yes
+"URL key for specified store already exists.","URL key for specified store already exists."
+"'URL key already exists.' .","'URL key already exists.' ."
+"Owl Carousel","Owl Carousel"
+"Bootstrap Carousel","Bootstrap Carousel"
+"All Store Views","All Store Views"
+Edit,Edit
+"We can't find brands matching the selection.","We can't find brands matching the selection."
+"We can't find brand matching the selection.","We can't find brand matching the selection."
+Items,Items
+of,of
+"%1 Item","%1 Item"
+"%1 Items","%1 Items"
+Previous,Previous
+Next,Next
+"Insert Widget...","Insert Widget..."
+"Ves Brand List","Ves Brand List"
+"Get brand list","Get brand list"
+"Select Static Block","Select Static Block"
+"Pretext HTML","Pretext HTML"
+"Number of Brand to Display","Number of Brand to Display"
+"Number Item per Column","Number Item per Column"
+"Show Brand Name","Show Brand Name"
+"Addtion Class","Addtion Class"
+"Carousel Layout","Carousel Layout"
+"Number Columns On Page (Phones)","Number Columns On Page (Phones)"
+"Show number items when screen size bellow 480px","Show number items when screen size bellow 480px"
+"Number Columns On Page (Phones to Small tablets)","Number Columns On Page (Phones to Small tablets)"
+"Show number items when screen size between 641px and 480px","Show number items when screen size between 641px and 480px"
+"Number Columns On Page (Phones to tablets)","Number Columns On Page (Phones to tablets)"
+"Show number items when screen size between 768px and 641px","Show number items when screen size between 768px and 641px"
+"Number Columns On Page (Portrait tablets)","Number Columns On Page (Portrait tablets)"
+"Show number items when screen size between 979px and 769px","Show number items when screen size between 979px and 769px"
+"Number Columns On Page (Default)","Number Columns On Page (Default)"
+"Show number items when screen size between 1199px and 980px","Show number items when screen size between 1199px and 980px"
+"Number Columns On Page (Large display)","Number Columns On Page (Large display)"
+"Show number items when screen size 1200px and up","Show number items when screen size 1200px and up"
+Autoplay,Autoplay
+"Autoplay Timeout","Autoplay Timeout"
+"Item Per Page","Item Per Page"
+"Number Column on Desktop","Number Column on Desktop"
+"Number Column on Tablets","Number Column on Tablets"
+"Number Column on Phones","Number Column on Phones"
+Interval,Interval
+RTL,RTL
+Loop,Loop
+"Show dots navigations","Show dots navigations"
+"Show next/prev buttons.","Show next/prev buttons."
+"Nav Prev Text","Nav Prev Text"
+"Nav Next Text","Nav Next Text"
+Template,Template
+Delete,Delete
+"Delete items","Delete items"
+"Are you sure you wan't to delete selected items?","Are you sure you wan't to delete selected items?"
+Disable,Disable
+Enable,Enable

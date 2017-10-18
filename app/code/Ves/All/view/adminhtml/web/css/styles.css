@@ -1,0 +1,364 @@
+.admin__menu .item-ves-all > a:before {
+    content: url('../images/venus.png') !important;
+    font-size: 2.4rem!important;
+    position: relative!important;
+    top: -0.2rem!important;
+}
+
+.vlicense .vitem {
+    float: left;
+    width: 100%;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px dashed #CCC;
+}
+
+.vlicense .vitem:last-child {
+    border-bottom: 0
+}
+
+.vlicense .vitem .pimg {
+    float: left;
+    width: 300px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+}
+
+.vlicense .vitem .pdetails {
+    float: left;
+    max-width: 700px;
+}
+
+.vlicense .vitem .plicense {
+    margin-bottom: 5px;
+    float: left;
+    width: 400px;
+    margin-top: 5px;
+}
+
+.vlicense .vitem .pinvalid {
+    color: #F00;
+    margin-top: 5px;
+}
+
+.vlicense .vitem .pmeta {
+    margin-top: 20px;
+}
+
+.vlicense .vitem input {
+    max-width: 400px;
+}
+
+.vlicense .pvalid {
+    font-weight: bold;
+    color: #3cb861;
+}
+
+.vlicense .pinvalid {
+    font-weight: bold;
+    color: #F00;
+}
+
+.vlicense h1 {
+    color: #41362f
+}
+
+.vlicense h1 a:hover {
+    text-decoration: none
+}
+
+#ves-elist {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0
+}
+
+#ves-elist .extend-card {
+    width: 47%;
+    border: 1px solid #ddd;
+    float: left;
+    margin-right: 2%;
+    margin-bottom: 20px;
+    height: 500px;
+    overflow: hidden;
+    transition: border-color .1s linear;
+    display: inline-block;
+}
+
+#ves-elist .extend-card .extend-card-top {
+    float: left;
+    position: relative;
+    height: 100%;
+}
+
+.extend-card-image:before,
+.extend-card-image:after,
+#ves-elist .extend-card .extend-card-top:before,
+#ves-elist .extend-card .extend-card-top:after {
+    display: table;
+    line-height: 0;
+    content: "";
+    clear: both;
+}
+
+#ves-elist .extend-card-image img {
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    height: auto;
+    float: left;
+    min-height: 130px;
+}
+
+.extend-des {
+    /* padding: 14px; */
+    height: 100px;
+    float: left;
+    background: #FFF;
+}
+
+.extend-card {
+    position:relative;
+}
+
+.extend-card:hover .extend-des{
+    position: absolute;
+    z-index: 99;
+    height: auto;
+    height: 100%;
+    line-height: 22px;
+    width: 100%;
+}
+.extend-des-inner {
+    max-height: 422px;
+    background: #FFF;
+    overflow: hidden;
+    padding: 14px 14px 0 14px;
+}
+
+.extend-des ul {
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+
+#ves-elist .extend-card a:hover {
+    text-decoration: none;
+}
+
+#ves-elist .extend-card h3 {
+    margin: 20px 0 12px;
+    font-size: 22px;
+    line-height: 1.3;
+    font-weight: normal;
+    width: 100%;
+    color: #eb5202;
+}
+
+#ves-elist .extend-card h3:hover {
+    color: #eb5202;
+}
+
+#ves-elist .extend-card .extend-price {
+    font-size: 32px;
+    /* margin-top: 10px; */
+    text-align: center;
+    float: left;
+    width: 100%;
+    /* margin-bottom: 20px; */
+    /* display: none; */
+    color: #eb5202;
+}
+
+#ves-elist .erow {
+    float: left;
+    width: 100%
+}
+
+#ves-elist .extend-card-desc {
+    float: left;
+    text-align: center;
+    display: block;
+    width: 100%;
+    /* margin-bottom: 10px; */
+    position: relative;
+}
+
+#ves-elist .extend-card-desc a:first-child {
+    float: left;
+    width: 100%;
+    /* margin-bottom: 10px; */
+    /* background: #eb5202; */
+}
+
+#ves-elist h1 a:hover {
+    text-decoration: none;
+}
+
+#ves-elist h1 {
+    margin-bottom: 50px;
+    font-size: 2.8rem !important;
+    text-align: center;
+}
+
+#ves-elist h1 a {
+    color: #eb5202
+}
+
+#ves-elist a:focus, #ves-elist a:active {
+    text-decoration: none;
+}
+
+#ves-elist .edetai:hover {
+    text-decoration: underline;
+    color: #eb5202;
+}
+
+#ves-elist .extend-card-image {
+    float: left;
+}
+
+#ves-elist .extend-buynow {
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: 2px solid #eb5202;
+    background: #eb5202;
+    color: #FFF;
+    margin-top: 10px;
+    transition: border-color .1s linear;
+    cursor: pointer;
+}
+
+#ves-elist .extend-des .extend-buynow {
+    margin-left: 14px;
+}
+
+#ves-elist .extend-buynow:hover {
+    background: #ca4802;
+    border-color: #ca4802;
+}
+
+.landofcoder-menu {
+    color: #41362f;
+    float: left;
+    font-size: 1.6rem;
+    margin-top: .7rem;
+}
+.page-main-actions._hidden .landofcoder-menu {
+    display: none;
+}
+.landofcoder-menu .dropdown {
+    display: inline-block!important;
+    position: relative;
+}
+.landofcoder-menu .dropdown:before, .landofcoder-menu .dropdown:after {
+    content: "";
+    display: table;
+}
+.landofcoder-menu .admin__action-dropdown {
+    font-size: 1.6rem;
+    letter-spacing: .025em;
+    background-color: #f8f8f8;
+    z-index: 20;
+    transition: border-color 0.15s ease;
+}
+.landofcoder-menu .dropdown .dropdown-menu {
+    margin: 0;
+    padding: 6px 0 3px 0;
+    list-style: none none;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px #007bdb solid;
+    position: absolute;
+    z-index: 1000;
+    top: 100%;
+    line-height: 1.36;
+    min-width: 18.5rem;
+    margin-top: -1px;
+    display: none;
+    transition: all 0.15s ease;
+    visibility: hidden;
+    opacity: 0;
+}
+.landofcoder-menu .dropdown.active .admin__action-dropdown-text:after {
+    background-color: #ffffff;
+    content: '';
+    height: 6px;
+    position: absolute;
+    top: 100%;
+    right: -6px;
+    left: 0;
+}
+.landofcoder-menu .dropdown.active .admin__action-dropdown,
+.landofcoder-menu .dropdown.active .dropdown-menu {
+    border-color: #007bdb;
+    background-color: #fff;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+.landofcoder-menu .dropdown.active .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+.landofcoder-menu .dropdown .dropdown-menu li:hover,
+.landofcoder-menu .dropdown .dropdown-menu li.current {
+    background: #e0f6fe;
+    cursor: pointer;
+}
+.landofcoder-menu .dropdown-menu>li>a:focus,.landofcoder-menu .dropdown-menu>li>a:hover{
+    background: #e0f6fe;
+}
+.landofcoder-menu .dropdown-menu li {
+    margin: 0;
+    border: 0;
+    cursor: default;
+    font-size: 1.4rem;
+    list-style-type: none;
+}
+.landofcoder-menu .dropdown-menu li a {
+    text-decoration: none;
+    color: #41362f;
+    display: block;
+    padding: .6rem 1.8rem;
+}
+.landofcoder-menu .dropdown-menu li.separator {
+    border-top: 1px #adadad solid;
+}
+.landofcoder-menu .dropdown-menu li.separator a {
+    padding-top: .8rem;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.landofcoder-menu .dropdown-child {
+    position: relative;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.landofcoder-menu .dropdown-content {
+    border-radius: 2px;
+    left: 100%;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    top: 0;
+    border: 1px #adadad solid;
+}
+
+/* Links inside the dropdown */
+.landofcoder-menu .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.landofcoder-menu .dropdown-content a:hover {background-color: #e0f6fe}
+
+/* Show the dropdown menu on hover */
+.landofcoder-menu .dropdown-child:hover .dropdown-content {
+    display: block;
+}

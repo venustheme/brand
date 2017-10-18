@@ -1,0 +1,19 @@
+{
+  "name": "ves/setup",
+  "description": "config enable/disable common js, css files which were used on all venus extensions. For example: bootstrap, owlcarousel, colorbox, fancybox",
+  "require": {
+    "magento/magento-composer-installer": "*"
+  },
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+     "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Ves\\Setup\\": ""
+        }
+    }
+}

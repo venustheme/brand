@@ -21,31 +21,15 @@
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
-	<head>
-		<css src="jquery/fileUploader/css/jquery.fileupload-ui.css"/>
-	</head>
-	<update handle="editor"/>
 	<body>
+		<referenceContainer name="page.main.actions">
+            <block class="Ves\Brand\Block\Adminhtml\Menu" name="ves_brand_menu" />
+        </referenceContainer>
 		<referenceContainer name="content">
 			<block class="Ves\Brand\Block\Adminhtml\Brand\Edit" name="brand_edit_page"/>
 		</referenceContainer>
 		<referenceContainer name="left">
 			<block class="Ves\Brand\Block\Adminhtml\Brand\Edit\Tabs" name="brand_edit_tabs">
-				<block class="Ves\Brand\Block\Adminhtml\Brand\Edit\Tab\Main" name="brand_edit_tab_main"/>
-				<block class="Ves\Brand\Block\Adminhtml\Brand\Edit\Tab\Design" name="brand_edit_tab_design"/>
-                <block class="Ves\Brand\Block\Adminhtml\Brand\Edit\Tab\Meta" name="brand_edit_tab_meta"/>
-				<action method="addTab">
-                    <argument name="name" xsi:type="string">main_section</argument>
-                    <argument name="block" xsi:type="string">brand_edit_tab_main</argument>
-                </action>
-                <action method="addTab">
-                    <argument name="name" xsi:type="string">design_section</argument>
-                    <argument name="block" xsi:type="string">brand_edit_tab_design</argument>
-                </action>
-                <action method="addTab">
-                    <argument name="name" xsi:type="string">meta_section</argument>
-                    <argument name="block" xsi:type="string">brand_edit_tab_meta</argument>
-                </action>
 			</block>
 		</referenceContainer>
 	</body>

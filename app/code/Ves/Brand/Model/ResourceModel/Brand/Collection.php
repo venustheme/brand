@@ -22,9 +22,6 @@ namespace Ves\Brand\Model\ResourceModel\Brand;
 
 use \Ves\Brand\Model\ResourceModel\AbstractCollection;
 
-/**
- * Brand collection
- */
 class Collection extends AbstractCollection
 {
 	/**

@@ -20,15 +20,13 @@
  * @license    http://www.venustheme.com/LICENSE-1.0.html
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 	<body>
 		<referenceContainer name="content">
 			<block class="Ves\Brand\Block\BrandList" name="brand_list">
-				<!-- <action method="setData">
-					<argument name="key" xsi:type="string">title</argument>
-					<argument name="value" xsi:type="string">ABC 123</argument>
-				</action> -->
+				<arguments>
+					<argument name="number_item_per_column" xsi:type="string">1</argument>
+				</arguments>
 			</block>
 		</referenceContainer>
 	</body>

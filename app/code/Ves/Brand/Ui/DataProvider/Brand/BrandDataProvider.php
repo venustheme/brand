@@ -22,9 +22,6 @@ namespace Ves\Brand\Ui\DataProvider\Brand;
 
 use Ves\Brand\Model\ResourceModel\Brand\CollectionFactory;
 
-/**
- * Class ProductDataProvider
- */
 class BrandDataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
     /**

@@ -1,0 +1,6 @@
+.admin__menu .item-brand > a:before {
+  content: '\e60d'!important;
+  font-size: 2.4rem!important;
+  position: relative!important;
+  top: -0.2rem!important;
+}

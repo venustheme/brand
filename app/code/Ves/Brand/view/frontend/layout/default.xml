@@ -24,7 +24,7 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 	<head>
 		<css src="Ves_Brand::css/owl.carousel.min.css" />
-		<css src="Ves_Brand::css/bootstrap.min.css" />
+		<css src="Ves_All::lib/bootstrap/css/bootstrap-tiny.css" />
 		<css src="Ves_Brand::css/styles.css" />
 	</head>
 </page>
